@@ -1,0 +1,38 @@
+name: spring-rest-clean-football-modulith
+
+services:
+
+  modulith:
+    container_name: spring-rest-clean-football-modulith
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-clean-football-modulith:0.0.1-SNAPSHOT
+    environment:
+      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-modulith:5438/postgres
+      THC_PATH: /actuator/health
+      THC_PORT: 8088
+    ports:
+      - "8088:8088"
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: "/workspace/health-check"
+      start_period: "3m" # DB migrations at startup may take a long time (1-2 min)
+      start_interval: "5s"
+      interval: "24h" # only the start is relevant for us
+
+  db:
+    container_name: postgres-db-clean-modulith
+    # image: postgres:17.2
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.2 # use pre-built image with data to save time at startup
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5438:5438"
+    command: -p 5438
+    healthcheck:
+      test: "pg_isready -p 5438 -U postgres"
+      start_period: "30s"
+      start_interval: "1s"
+      interval: "24h" # only the start is relevant for us
