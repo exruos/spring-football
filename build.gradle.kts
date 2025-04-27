@@ -5,10 +5,10 @@ import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 plugins {
     kotlin("jvm") version "1.9.23"
     kotlin("plugin.spring") version "1.9.23"
-    id("org.springframework.boot") version "3.4.4"
+    id("org.springframework.boot") version "3.4.5"
     id("io.spring.dependency-management") version "1.1.7"
     id("io.gitlab.arturbosch.detekt") version "1.23.6"
-    id("com.google.protobuf") version "0.9.4"
+    id("com.google.protobuf") version "0.9.5"
 }
 
 group = "de.envite.sample.spring.clean.football"
@@ -26,18 +26,16 @@ repositories {
     maven("https://repo.spring.io/snapshot")
 }
 
-extra["springGrpcVersion"] = "0.6.0-SNAPSHOT"
+extra["springGrpcVersion"] = "0.9.0-SNAPSHOT"
 
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("net.logstash.logback:logstash-logback-encoder:8.0")
     implementation("org.springframework.grpc:spring-grpc-spring-boot-starter")
-    implementation("io.grpc:grpc-services")
-    implementation("io.grpc:grpc-servlet-jakarta")
+    implementation("org.springframework.grpc:spring-grpc-server-web-spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
-    implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.jetbrains.kotlin:kotlin-reflect")

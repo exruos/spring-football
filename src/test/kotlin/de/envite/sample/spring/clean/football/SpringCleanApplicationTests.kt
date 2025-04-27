@@ -12,7 +12,7 @@ import org.springframework.test.context.ActiveProfiles
 )
 @SpringBootTest
 @ActiveProfiles("test")
-class SpringRestCleanApplicationTests {
+class SpringCleanApplicationTests {
 
     @Test
     @Suppress("EmptyFunctionBlock")

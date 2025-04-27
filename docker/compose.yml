@@ -1,12 +1,12 @@
-name: spring-rest-clean-football-modulith
+name: spring-clean-football-service
 
 services:
 
   modulith:
-    container_name: spring-rest-clean-football-modulith
-    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-clean-football-modulith:0.0.1-SNAPSHOT
+    container_name: spring-clean-football-service
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/spring-clean-football-service:0.0.1-SNAPSHOT
     environment:
-      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-modulith:5438/postgres
+      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
       THC_PATH: /actuator/health
       THC_PORT: 8088
     ports:
@@ -21,7 +21,7 @@ services:
       interval: "24h" # only the start is relevant for us
 
   db:
-    container_name: postgres-db-clean-modulith
+    container_name: postgres-db-clean-service
     # image: postgres:17.2
     image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.2 # use pre-built image with data to save time at startup
     restart: always

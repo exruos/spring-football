@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringRestCleanFootballModulithApplication
+class SpringCleanFootballApplication
 
 fun main(args: Array<String>) {
-    runApplication<SpringRestCleanFootballModulithApplication>(args = args)
+    runApplication<SpringCleanFootballApplication>(args = args)
 }
