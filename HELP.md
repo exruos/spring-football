@@ -89,10 +89,10 @@ docker login registry.gitlab.com
 Push:
 
 ```sh
-docker push registry.gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-clean-football-modulith:0.0.1-SNAPSHOT
+docker push registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT
 ```
 
-Image is published to: <https://gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-clean-football-modulith/container_registry>
+Image is published to: <https://gitlab.com/envite-consulting/sustainable-software-architecture/spring-clean-football-service/container_registry>
 
 ## Pre-built database image
 

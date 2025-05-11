@@ -118,6 +118,6 @@ tasks {
         buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java", "gcr.io/paketo-buildpacks/health-checker:latest")
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
 
-        imageName.set("registry.gitlab.com/envite-consulting/sustainable-software-architecture/${project.name}:${version}")
+        imageName.set("registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/${project.name}:${version}")
     }
 }
