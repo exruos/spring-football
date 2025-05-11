@@ -8,12 +8,9 @@ export const options = {
   // ~24k requests in total
   scenarios: {
     player: {
-      executor: "constant-arrival-rate",
-      duration: "60s",
-      rate: 200,
-      timeUnit: "1s",
-      preAllocatedVUs: 0,
-      maxVUs: 100,
+      executor: "constant-vus",
+      duration: "5m",
+      vus: 100,
     },
   },
 };
