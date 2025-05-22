@@ -115,7 +115,7 @@ tasks {
 
     withType<BootBuildImage> {
         builder.set("dashaun/builder:base") // base instead of tiny otherwise health check does not work
-        buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java", "gcr.io/paketo-buildpacks/health-checker:latest")
+        buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java")
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
 
         imageName.set("registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/${project.name}:${version}")
