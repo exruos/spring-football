@@ -8,9 +8,10 @@ export const options = {
     // ~24k requests in total
     scenarios: {
         player: {
-            executor: "constant-vus",
-            duration: "5m",
+            executor: "per-vu-iterations",
             vus: 100,
+            iterations: 200,
+            duration: "5m",
         },
     },
 };
