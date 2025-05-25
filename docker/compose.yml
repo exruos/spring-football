@@ -14,11 +14,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
-    healthcheck:
-      test: "/workspace/health-check"
-      start_period: "3m" # DB migrations at startup may take a long time (1-2 min)
-      start_interval: "5s"
-      interval: "24h" # only the start is relevant for us
 
   db:
     container_name: postgres-db-clean-service
