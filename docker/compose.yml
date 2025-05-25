@@ -4,7 +4,7 @@ services:
 
   service:
     container_name: spring-clean-football-service
-    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.2-SNAPSHOT
     environment:
       DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
       THC_PATH: /actuator/health
