@@ -42,6 +42,7 @@ export default function () {
   });
   check(res1, {
     "status is 200": (r) => r.status === 200,
+    "protocol is HTTP/2": (r) => r.proto === 'HTTP/2.0',
   });
 
   // Get player record
@@ -50,5 +51,6 @@ export default function () {
   });
   check(res2, {
     "status is 200": (r) => r.status === 200,
+    "protocol is HTTP/2": (r) => r.proto === 'HTTP/2.0',
   });
 }
