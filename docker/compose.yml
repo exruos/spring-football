@@ -15,10 +15,10 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: "curl --fail --silent localhost:8088/actuator/health | jq --exit-status -n 'inputs | if has(\"status\") then .status==\"UP\" else false end' > /dev/null || exit 1"
-      interval: 20s
+      test: "/workspace/health-check"
+      interval: 10s
       timeout: 5s
-      retries: 3
+      retries: 5
       start_period: 15s
 
   db:
