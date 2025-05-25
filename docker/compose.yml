@@ -15,10 +15,11 @@ services:
       db:
         condition: service_healthy
     healthcheck:
-      test: "/workspace/health-check"
-      interval: 10s
+      test: "curl --fail --silent localhost:8080/actuator/health | jq --exit-status -n 'inputs | if has(\"status\") then .status==\"UP\" else false end' > /dev/null || exit 1"
+      interval: 20s
       timeout: 5s
-      retries: 5
+      retries: 3
+      start_period: 15s
 
   db:
     container_name: postgres-db-clean-service
