@@ -114,6 +114,7 @@ tasks {
     }
 
     withType<BootBuildImage> {
+        imagePlatform = "linux/arm64"
         builder.set("dashaun/builder:base") // base instead of tiny otherwise health check does not work
         buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java", "docker.io/paketobuildpacks/health-checker:latest")
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
