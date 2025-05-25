@@ -59,7 +59,7 @@ artillery report report.json
 If you want to specify a different target, you can use the argument `--target` or `-t`:
 
 ```sh
-artillery run client/artillery_test.yml -t $MODULITH_URL
+artillery run client/artillery_test.yml -t $service_URL
 ```
 
 ## Build

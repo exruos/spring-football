@@ -1,5 +1,5 @@
 ---
-name: Spring Football Modulith Clean - REST (curl)
+name: Spring Football service Clean - REST (curl)
 author: David Kopp
 description: Executes individual API requests using curl
 
@@ -8,8 +8,8 @@ compose-file: !include docker/compose.yml
 services:
   
   # change container names so GMT can compare results between simple and clean
-  modulith:
-    container_name: modulith
+  service:
+    container_name: service
     environment:
       DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
       SERVER_HTTP2_ENABLED: false
@@ -22,8 +22,8 @@ services:
     image: curlimages/curl:8.1.0
     command: sh
     depends_on:
-      modulith:
-        condition: service_healthy # wait until the modulith is ready before starting with the flow
+      service:
+        condition: service_healthy # wait until the service is ready before starting with the flow
 
 sci:
   R_d: API Call
@@ -33,7 +33,7 @@ flow:
     container: curl
     commands:
       - type: console
-        command: curl -s modulith:8088/players/1
+        command: curl -s service:8088/players/1
         note: Get player
       - type: console
         command: echo GMT_SCI_R=1
@@ -44,7 +44,7 @@ flow:
     container: curl
     commands:
       - type: console
-        command: curl -s modulith:8088/players/record/1
+        command: curl -s service:8088/players/record/1
         note: Get player record
       - type: console
         command: echo GMT_SCI_R=1

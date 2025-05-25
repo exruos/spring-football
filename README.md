@@ -2,7 +2,7 @@
 
 Diese Spring Boot Fußball Demo-Anwendung wurde auf Basis des Spring-Frameworks und einer Clean Architecture umgesetzt.
 
-Variante ohne Clean Architecture: <https://gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-simple-football-modulith>
+Variante ohne Clean Architecture: <https://gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-simple-football-service>
 
 ## Informationen zum Setup
 
@@ -111,7 +111,7 @@ Offizielle Installationsanleitung: <https://docs.green-coding.io/docs/installati
 Ausführung einer Messung (simples Szenario mit curl wird als Beispiel genutzt):
 
 ```sh
-python3 runner.py --name "Spring REST Football Modulith Clean - REST Endpoints" --uri "https://gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-clean-football-modulith" --filename "usage_scenario-curl.yml" --skip-system-checks --dev-no-optimizations --skip-unsafe
+python3 runner.py --name "Spring REST Football service Clean - REST Endpoints" --uri "https://gitlab.com/envite-consulting/sustainable-software-architecture/spring-rest-clean-football-service" --filename "usage_scenario-curl.yml" --skip-system-checks --dev-no-optimizations --skip-unsafe
 ```
 
 Bemerkungen:

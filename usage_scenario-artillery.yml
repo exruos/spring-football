@@ -1,5 +1,5 @@
 ---
-name: Spring Football Modulith Clean - REST (Artillery)
+name: Spring Football service Clean - REST (Artillery)
 author: David Kopp
 description: Executes a HTTP load test scenario using Artillery. There are two phases, warm up and constant load.
 
@@ -8,8 +8,8 @@ compose-file: !include docker/compose.yml
 services:
 
   # change container names so GMT can compare results between simple and clean
-  modulith:
-    container_name: modulith
+  service:
+    container_name: service
     environment:
       DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
       SERVER_HTTP2_ENABLED: false
@@ -21,8 +21,8 @@ services:
     container_name: artillery
     image: artilleryio/artillery:2.0.20 # 2.0.21 has a bug, 2.0.22 is much bigger (Alpine -> Debian + Chromium for Playwright)
     depends_on:
-      modulith:
-        condition: service_healthy # wait until the modulith is ready before starting with the flow
+      service:
+        condition: service_healthy # wait until the service is ready before starting with the flow
     entrypoint: "" # ignore default entrypoint
     command: sleep infinity # wait for commands in the flow
 
@@ -31,13 +31,13 @@ flow:
     container: artillery
     commands:
       - type: console
-        command: run run /tmp/repo/client/artillery_gmt_warm_up.yml -t http://modulith:8088 # first run is the executable, second run the artillery command 'run'
+        command: run run /tmp/repo/client/artillery_gmt_warm_up.yml -t http://service:8088 # first run is the executable, second run the artillery command 'run'
         log-stdout: true
         log-stderr: true
   - name: Load Test
     container: artillery
     commands:
       - type: console
-        command: run run /tmp/repo/client/artillery_gmt_load.yml -t http://modulith:8088 # first run is the executable, second run the artillery command 'run'
+        command: run run /tmp/repo/client/artillery_gmt_load.yml -t http://service:8088 # first run is the executable, second run the artillery command 'run'
         log-stdout: true
         log-stderr: true
