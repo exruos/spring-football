@@ -13,6 +13,7 @@ services:
     environment:
       DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
       SERVER_HTTP2_ENABLED: false
+    log-stdout: true
 
   db:
     container_name: database
