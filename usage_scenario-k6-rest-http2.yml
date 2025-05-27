@@ -27,6 +27,7 @@ services:
     command: sleep infinity # wait for commands in the flow
     environment:
       TARGET_HOSTNAME: "service:8088"
+    working_dir: /tmp/repo/client
 
 flow:
   - name: Warm Up
