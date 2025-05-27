@@ -33,7 +33,7 @@ flow:
     container: k6
     commands:
       - type: console
-        command: --user $UID k6 run /tmp/repo/client/k6_http_gmt_warm_up.js --quiet
+        command: k6 run /tmp/repo/client/k6_http_gmt_warm_up.js --quiet
         log-stdout: true # only summary is logged
         log-stderr: true
   - name: Constant Load
