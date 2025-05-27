@@ -19,7 +19,7 @@ services:
 
   k6:
     container_name: k6
-    image: grafana/k6:0.57.0
+    image: grafana/k6:1.0.0
     depends_on:
       service:
         condition: service_healthy # wait until the service is ready before starting with the flow
