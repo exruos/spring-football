@@ -33,7 +33,7 @@ flow:
     container: k6
     commands:
       - type: console
-        command: chmod -R 755 /tmp/repo/client/
+        command: chmod -R 755 /tmp
       - type: console
         command: k6 run /tmp/repo/client/k6_http_gmt_warm_up.js --quiet
         log-stdout: true # only summary is logged
