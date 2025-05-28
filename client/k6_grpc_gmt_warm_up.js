@@ -22,7 +22,8 @@ client.load(["../src/main/proto"], "player.proto");
 
 export default function () {
   const hostname = `${__ENV.TARGET_HOSTNAME}`;
-  client.connect(hostname, {
+  const port = `${__ENV.TARGET_PORT}`;
+  client.connect(`${hostname}:${port}`, {
     plaintext: true,
   });
 

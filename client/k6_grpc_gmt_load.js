@@ -20,8 +20,9 @@ const client = new grpc.Client();
 client.load(["../src/main/proto"], "player.proto");
 
 export default function () {
-  const hostname = `localhost:8088`;
-  client.connect(hostname, {
+  const hostname = `${__ENV.TARGET_HOSTNAME}`;
+  const port = `${__ENV.TARGET_PORT}`;
+  client.connect(`${hostname}:${port}`, {
     plaintext: true,
   });
 

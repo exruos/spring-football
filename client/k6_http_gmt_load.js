@@ -17,10 +17,11 @@ export const options = {
 };
 
 export default function () {
-    const hostname = `localhost`;
+  const hostname = `${__ENV.TARGET_HOSTNAME}`;
+  const port = `${__ENV.TARGET_PORT}`;
     const randomId = Math.floor(Math.random() * 11075) + 1;
 
-    const res = http.get(`http://${hostname}:8088/players/record/${randomId}`, {
+    const res = http.get(`http://${hostname}:${port}/players/record/${randomId}`, {
         tags: {name: "player_record"},
     });
     check(res, {

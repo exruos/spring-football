@@ -26,7 +26,8 @@ services:
     entrypoint: "" # ignore default entrypoint
     command: sleep infinity # wait for commands in the flow
     environment:
-      TARGET_HOSTNAME: "service:8088"
+      TARGET_HOSTNAME: "service"
+      TARGET_PORT: "8088"
 
 flow:
   - name: Warm Up
