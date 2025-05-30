@@ -9,6 +9,8 @@ spring:
     virtual:
       enabled: false
 server:
+  tomcat:
+    max-keep-alive-requests: -1
   http2:
     enabled: true # required for gRPC
   port: 8088
