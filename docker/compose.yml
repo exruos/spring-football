@@ -23,8 +23,8 @@ services:
 
   db:
     container_name: postgres-db-clean-service
-    # image: postgres:17.2
-    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.2 # use pre-built image with data to save time at startup
+    # image: postgres:17.5
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.5 # use pre-built image with data to save time at startup
     restart: always
     shm_size: 128mb
     environment:

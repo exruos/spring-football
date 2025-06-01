@@ -3,7 +3,7 @@ datasources:
     locations: test/migration
   football:
     datasource:
-      url: jdbc:tc:postgresql:17.2:///integration-test
+      url: jdbc:tc:postgresql:17.5:///integration-test
       username: user
       password: password
       driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
