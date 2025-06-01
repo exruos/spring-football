@@ -71,7 +71,7 @@ echo "GMT Server: $API_URL"
 echo "GMT Machine: $selected_machine"
 echo ""
 echo "Name: $NAME"
-echo "URL: $URL"
+echo "Repo-URL: $REPO_URL"
 echo "Filename: $FILENAME"
 echo "Branch: $BRANCH"
 echo "Schedule mode: $SCHEDULE_MODE"
@@ -85,7 +85,7 @@ echo ""
 response=$(curl -s -X POST $API_URL/v1/software/add \
  -H "X-Authentication: ${API_TOKEN}" \
  -H 'Content-Type: application/json' \
- --data-raw '{"name":"'"$NAME"'", "email":"'"$EMAIL"'", "url":"'"$URL"'", "filename":"'"$FILENAME"'", "branch":"'"$BRANCH"'", "machine_id":'$selected_id', "schedule_mode":"'"$SCHEDULE_MODE"'"}'
+ --data-raw '{"name":"'"$NAME"'", "email":"'"$EMAIL"'", "repo_url":"'"$REPO_URL"'", "filename":"'"$FILENAME"'", "branch":"'"$BRANCH"'", "machine_id":'$selected_id', "schedule_mode":"'"$SCHEDULE_MODE"'"}'
 )
 success=$(echo "$response" | jq -r '.success')
 
