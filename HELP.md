@@ -76,6 +76,12 @@ Build container image:
 ./gradlew bootBuildImage
 ```
 
+Build container image for ARM:
+
+```sh
+./gradlew bootBuildImage --imagePlatform=linux/arm64 --imageName=registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT-arm64
+```
+
 ## Publish Container Image
 
 Container Registry: GitLab
