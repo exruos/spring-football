@@ -22,7 +22,7 @@ export const options = {
         // Ramp-up to 400 iterations per second
         { target: 400, duration: "30s" },
 
-        // Continue starting 500 iterations per second for one minute.
+        // Continue starting 400 iterations per second for one minute.
         { target: 400, duration: "1m" },
 
         // Linearly ramp-down to starting 1 iteration per second.

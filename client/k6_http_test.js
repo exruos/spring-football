@@ -19,7 +19,7 @@ export const options = {
       preAllocatedVUs: 200,
 
       stages: [
-        // Ramp-up to 4000 iterations per second
+        // Ramp-up to 400 iterations per second
         { target: 400, duration: "30s" },
 
         // Continue starting 400 iterations per second for one minute.
