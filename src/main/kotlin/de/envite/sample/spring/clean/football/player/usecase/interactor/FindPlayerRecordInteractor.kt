@@ -5,7 +5,9 @@ import de.envite.sample.spring.clean.football.player.domain.PlayerRecord
 import de.envite.sample.spring.clean.football.player.usecase.outgoing.ReadPlayer
 import de.envite.sample.spring.clean.football.player.usecase.outgoing.ReadPlayerAttributes
 import de.envite.sample.spring.clean.football.player.usecase.ingoing.FindPlayerRecord as FindPLayerRecordApi
+import org.springframework.stereotype.Component
 
+@Component
 internal class FindPlayerRecordInteractor(
     private val readPlayer: ReadPlayer,
     private val readPlayerAttributes: ReadPlayerAttributes

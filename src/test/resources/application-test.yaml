@@ -7,3 +7,15 @@ datasources:
       username: user
       password: password
       driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  player:
+    datasource:
+      url: jdbc:tc:postgresql:17.5:///integration-test
+      username: user
+      password: password
+      driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
+  team:
+    datasource:
+      url: jdbc:tc:postgresql:17.5:///integration-test
+      username: user
+      password: password
+      driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver

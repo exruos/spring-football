@@ -18,7 +18,15 @@ server:
 datasources:
   flyway:
     locations: db/migration
-  football:
+  player:
+    datasource:
+      url: jdbc:postgresql://localhost:5438/postgres
+      username: postgres
+      password: postgres
+      hikari:
+        max-lifetime: 600000
+        maximum-pool-size: 100 # default: 10
+  team:
     datasource:
       url: jdbc:postgresql://localhost:5438/postgres
       username: postgres
