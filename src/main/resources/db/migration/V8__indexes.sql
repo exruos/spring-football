@@ -1,0 +1,5 @@
+CREATE INDEX pa_player_api_id_idx ON player_attributes(player_api_id);
+CREATE INDEX pa_player_fifa_api_id_idx ON player_attributes(player_fifa_api_id);
+CREATE INDEX ta_team_api_id_idx ON player_attributes(team_api_id);
+CREATE INDEX ta_team_fifa_api_id_idx ON player_attributes(team_fifa_api_id);
+CREATE INDEX match_team_api_id_idx ON team(team_api_id);
