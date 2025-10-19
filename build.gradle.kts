@@ -1,13 +1,14 @@
 import io.gitlab.arturbosch.detekt.Detekt
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    kotlin("jvm") version "1.9.23"
-    kotlin("plugin.spring") version "1.9.23"
-    id("org.springframework.boot") version "3.4.5"
+    kotlin("jvm") version "2.2.20"
+    kotlin("plugin.spring") version "2.2.20"
+    id("org.springframework.boot") version "3.5.6"
     id("io.spring.dependency-management") version "1.1.7"
-    id("io.gitlab.arturbosch.detekt") version "1.23.6"
+    id("io.gitlab.arturbosch.detekt") version "1.23.8"
     id("com.google.protobuf") version "0.9.5"
 }
 
@@ -26,7 +27,7 @@ repositories {
     maven("https://repo.spring.io/snapshot")
 }
 
-extra["springGrpcVersion"] = "0.9.0-SNAPSHOT"
+extra["springGrpcVersion"] = "0.11.0"
 
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -50,7 +51,20 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // Additional Detekt rules (Previously part of detekt)
-    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.6")
+    detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
+}
+
+// Usually Detekt brings along and needs its own Kotlin version to run.
+// This block here ensures that all detekt dependencies still use this Kotlin version.
+// Without the block, Detekt's Kotlin version would be overridden by the Spring Dependency Management,
+// causing Detekt to throw a "wrong Kotlin version" exception at runtime
+// when an incompatible Kotlin version is forced onto it.
+configurations.matching { it.name.contains("detekt") }.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            useVersion(io.gitlab.arturbosch.detekt.getSupportedKotlinVersion())
+        }
+    }
 }
 
 dependencyManagement {
@@ -99,11 +113,15 @@ tasks {
     }
 
     withType<KotlinCompile> {
-        kotlinOptions {
-            freeCompilerArgs = listOf("-Xjsr305=strict", "-opt-in=kotlin.RequiresOptIn")
-            jvmTarget = "21"
+        compilerOptions {
+            freeCompilerArgs =
+                listOf("-Xjsr305=strict", "-Xjvm-default=all", "-Xannotation-default-target=param.property")
+            jvmTarget = JvmTarget.JVM_21
+            javaParameters = true
+            allWarningsAsErrors = true
         }
     }
+
     withType<Test> {
         useJUnitPlatform()
     }
