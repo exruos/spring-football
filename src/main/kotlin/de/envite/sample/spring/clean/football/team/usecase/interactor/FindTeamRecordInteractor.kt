@@ -4,8 +4,8 @@ import de.envite.sample.spring.clean.football.team.domain.TeamId
 import de.envite.sample.spring.clean.football.team.domain.TeamRecord
 import de.envite.sample.spring.clean.football.team.usecase.outgoing.ReadTeam
 import de.envite.sample.spring.clean.football.team.usecase.outgoing.ReadTeamAttributes
-import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeamRecord as FindTeamRecordApi
 import org.springframework.stereotype.Component
+import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeamRecord as FindTeamRecordApi
 
 @Component
 internal class FindTeamRecordInteractor(

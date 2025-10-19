@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Import
 import org.springframework.context.annotation.Primary
 import org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration
 import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
-import org.springframework.jdbc.core.JdbcOperations
 import org.springframework.jdbc.core.JdbcTemplate
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate
 import org.springframework.jdbc.datasource.DataSourceTransactionManager
@@ -50,7 +49,6 @@ class FootballDbDataSourceConfiguration : AbstractJdbcConfiguration() {
         JdbcTemplate(footballDbDataSource)
 
     @Bean
-    @Primary
     fun footballNamedParameterJdbcTemplate(footballJdbcTemplate: JdbcTemplate): NamedParameterJdbcTemplate {
         return NamedParameterJdbcTemplate(footballJdbcTemplate)
     }

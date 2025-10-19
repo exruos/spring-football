@@ -2,8 +2,8 @@ package de.envite.sample.spring.clean.football.player.usecase.interactor
 
 import de.envite.sample.spring.clean.football.player.domain.PlayerId
 import de.envite.sample.spring.clean.football.player.usecase.outgoing.ReadPlayer
-import de.envite.sample.spring.clean.football.player.usecase.ingoing.FindPlayer as FindPlayerApi
 import org.springframework.stereotype.Component
+import de.envite.sample.spring.clean.football.player.usecase.ingoing.FindPlayer as FindPlayerApi
 
 @Component
 internal class FindPlayerInteractor(
