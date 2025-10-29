@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
 
 @Import(
-    FootballDbDataSourceConfiguration::class,
+    PlayerDbDataSourceConfiguration::class,
     PlayerRepository::class,
     PlayerAttributesRepository::class
 )

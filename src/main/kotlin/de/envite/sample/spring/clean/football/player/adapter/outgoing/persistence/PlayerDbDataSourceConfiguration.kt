@@ -21,11 +21,12 @@ import javax.sql.DataSource
 @EnableJdbcRepositories(
     basePackages = [
         "de.envite.sample.spring.clean.football.player.adapter.outgoing.persistence",
-        "de.envite.sample.spring.clean.football.team.adapter.outgoing.persistence"
+        "de.envite.sample.spring.clean.football.team.adapter.outgoing.persistence",
+        "de.envite.sample.spring.clean.football.match.adapter.outgoing.persistence"
     ]
 )
 @Import(FootballFlywayMigrationConfiguration::class)
-class FootballDbDataSourceConfiguration : AbstractJdbcConfiguration() {
+class PlayerDbDataSourceConfiguration : AbstractJdbcConfiguration() {
 
     @Bean
     @ConfigurationProperties("datasources.football.datasource")
@@ -45,10 +46,12 @@ class FootballDbDataSourceConfiguration : AbstractJdbcConfiguration() {
     }
 
     @Bean
+    @Primary
     fun footballJdbcTemplate(footballDbDataSource: DataSource): JdbcTemplate =
         JdbcTemplate(footballDbDataSource)
 
     @Bean
+    @Primary
     fun footballNamedParameterJdbcTemplate(footballJdbcTemplate: JdbcTemplate): NamedParameterJdbcTemplate {
         return NamedParameterJdbcTemplate(footballJdbcTemplate)
     }
