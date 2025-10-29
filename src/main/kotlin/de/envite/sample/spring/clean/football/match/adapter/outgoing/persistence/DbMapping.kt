@@ -9,9 +9,9 @@ import de.envite.sample.spring.clean.football.match.domain.MatchId
 import de.envite.sample.spring.clean.football.match.domain.PlayerLineup
 import de.envite.sample.spring.clean.football.match.domain.Season
 import de.envite.sample.spring.clean.football.match.domain.Stage
-import de.envite.sample.spring.clean.football.player.domain.PlayerId
-import de.envite.sample.spring.clean.football.team.domain.Day
-import de.envite.sample.spring.clean.football.team.domain.TeamId
+import de.envite.sample.spring.clean.football.match.domain.PlayerId
+import de.envite.sample.spring.clean.football.match.domain.Day
+import de.envite.sample.spring.clean.football.match.domain.TeamId
 
 fun MatchDto.toMatch(): Match {
     return Match(

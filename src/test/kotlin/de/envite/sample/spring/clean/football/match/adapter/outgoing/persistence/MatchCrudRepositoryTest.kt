@@ -8,7 +8,7 @@ import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
 import org.testcontainers.junit.jupiter.Testcontainers
 
-@SpringBootTest()
+@SpringBootTest(classes = [MatchPersistenceTestConfiguration::class])
 @ActiveProfiles("test")
 @Testcontainers
 @TestConstructor(autowireMode = ALL)

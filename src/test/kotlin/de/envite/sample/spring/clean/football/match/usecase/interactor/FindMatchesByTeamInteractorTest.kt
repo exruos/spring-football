@@ -1,6 +1,6 @@
 package de.envite.sample.spring.clean.football.match.usecase.interactor
 
-import de.envite.sample.spring.clean.football.team.domain.TeamId
+import de.envite.sample.spring.clean.football.match.domain.TeamId
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
@@ -9,7 +9,7 @@ import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
 import org.testcontainers.junit.jupiter.Testcontainers
 
-@SpringBootTest()
+@SpringBootTest(classes = [MatchLogicTestConfiguration::class])
 @ActiveProfiles("test")
 @Testcontainers
 @TestConstructor(autowireMode = ALL)

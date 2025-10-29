@@ -28,6 +28,7 @@ repositories {
 }
 
 extra["springGrpcVersion"] = "0.11.0"
+extra["springModulithVersion"] = "1.4.4"
 
 dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
@@ -41,6 +42,11 @@ dependencies {
     implementation("org.flywaydb:flyway-database-postgresql")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     runtimeOnly("org.postgresql:postgresql")
+
+    // Spring Modulith dependencies
+    implementation("org.springframework.modulith:spring-modulith-api")
+    implementation("org.springframework.modulith:spring-modulith-starter-core")
+
     testImplementation("com.ninja-squad:springmockk:4.0.2")
     testImplementation("io.rest-assured:spring-mock-mvc")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
@@ -48,6 +54,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    testImplementation("org.springframework.modulith:spring-modulith-docs")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // Additional Detekt rules (Previously part of detekt)
@@ -70,6 +78,7 @@ configurations.matching { it.name.contains("detekt") }.all {
 dependencyManagement {
     imports {
         mavenBom("org.springframework.grpc:spring-grpc-dependencies:${property("springGrpcVersion")}")
+        mavenBom("org.springframework.modulith:spring-modulith-bom:${property("springModulithVersion")}")
     }
 }
 

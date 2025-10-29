@@ -1,10 +1,11 @@
 package de.envite.sample.spring.clean.football.match.domain
 
-import de.envite.sample.spring.clean.football.player.domain.PlayerId
-import de.envite.sample.spring.clean.football.team.domain.Day
-import de.envite.sample.spring.clean.football.team.domain.TeamId
 import de.envite.sample.spring.clean.football.types.TypedInt
+import de.envite.sample.spring.clean.football.types.TypedLocalDate
 import de.envite.sample.spring.clean.football.types.TypedValue
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 data class Match(
     val matchId: MatchId,
@@ -54,3 +55,25 @@ class Stage(value: Int) : TypedInt(value)
 class MatchApiId(value: Int) : TypedInt(value)
 
 class Goals(value: Int) : TypedInt(value)
+
+// Module-specific ID types to avoid cross-module dependencies
+class TeamId(value: Int) : TypedInt(value) {
+    companion object {
+        fun fromString(v: String) = v.toInt().let(::TeamId)
+        fun fromLong(l: Long) = l.toInt().let(::TeamId)
+    }
+}
+
+class PlayerId(value: Int) : TypedInt(value) {
+    companion object {
+        fun fromString(v: String) = v.toInt().let(::PlayerId)
+        fun fromLong(l: Long) = l.toInt().let(::PlayerId)
+    }
+}
+
+class Day(value: LocalDate) : TypedLocalDate(value) {
+    companion object {
+        private val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
+        fun fromString(v: String) = LocalDateTime.parse(v, formatter).toLocalDate().let(::Day)
+    }
+}
