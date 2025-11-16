@@ -25,6 +25,26 @@ Wie eine Ausführung mit GMT möglich ist, wird unten im Abschnitt [Energiemessu
 [Das Paketo Buildpack for Health Checker](https://github.com/paketo-buildpacks/health-checker) wird genutzt, um den Health-Status der Applikation zu überwachen.
 Für die Messung mit GMT ist das wichtig, damit GMT weiß, ab wann die Anwendung mit dem Start fertig ist und der eigentliche Workflow beginnen kann.
 
+## Erstellung des Datbank Containers
+
+Erstellung eines Datenbank-Dumps aus einer lokalen DB Instanz
+```shell
+pg_dump --no-owner -C -h localhost -U peterkutschera soccer > soccer.dump
+```
+
+Dump in eine neue Docker Instanz einer Postgres Datenbank einspielen
+```shell
+docker run --name temp-postgres -e PGDATA=/var/lib/postgresql/pgdata -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -d -p 5432:5432 postgres:18.1
+docker exec -i c273b48b50afed8a32fdfa0d212a406990d4a1af47453f0880112fcf0ff235ee psql -U postgres -d postgres < soccer.dump
+```
+
+Neuen Container in der Container Registry bereitstellen
+```shell
+docker stop temp-postgres
+docker commit temp-postgres registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-18.1
+docker push registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-18.1
+```
+
 ## Nutzung
 
 ### Lokale Ausführung
