@@ -1,14 +1,14 @@
 package de.envite.sample.spring.clean.football.match.adapter.ingoing.rest.api
 
 import de.envite.sample.spring.clean.football.match.domain.MatchId
+import de.envite.sample.spring.clean.football.match.domain.TeamId
 import de.envite.sample.spring.clean.football.match.usecase.ingoing.FindMatch
 import de.envite.sample.spring.clean.football.match.usecase.ingoing.FindMatchesByTeam
-import de.envite.sample.spring.clean.football.match.domain.TeamId
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestMethod.GET
 import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.RequestMethod.GET
 
 @RestController
 class MatchRestController(

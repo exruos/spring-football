@@ -1,8 +1,8 @@
 package de.envite.sample.spring.clean.football.match.adapter.outgoing.persistence
 
 import de.envite.sample.spring.clean.football.match.domain.Match
-import de.envite.sample.spring.clean.football.match.usecase.outgoing.ReadMatchesByTeam
 import de.envite.sample.spring.clean.football.match.domain.TeamId
+import de.envite.sample.spring.clean.football.match.usecase.outgoing.ReadMatchesByTeam
 import org.springframework.stereotype.Component
 
 @Component

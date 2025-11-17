@@ -48,7 +48,6 @@ class BoundaryVerificationTest {
             modules.verify()
             System.err.println("✅ All module boundaries are valid!")
             System.err.println("✅ No actual cross-module code dependencies found!")
-
         } catch (violations: org.springframework.modulith.core.Violations) {
             System.err.println("❌ Module boundary violations found:")
             System.err.println("Violation details: ${violations.message}")

@@ -74,7 +74,9 @@ class ModulithDocumentationTest {
                     System.err.println("║    Architecture: Domain → UseCase → Adapter (Clean Architecture)")
                     System.err.println("║    Independence: Contains local TeamId, PlayerId, Day types")
                     System.err.println("║    Dependencies: Only 'types' module")
-                    System.err.println("║    Key Feature: No cross-module dependencies achieved via local type definitions")
+                    System.err.println(
+                        "║    Key Feature: No cross-module dependencies achieved via local type definitions"
+                    )
                 }
                 module.basePackage.contains(".team") -> {
                     System.err.println("║    Type: ⚽ BUSINESS DOMAIN MODULE (Team Management)")
@@ -84,7 +86,9 @@ class ModulithDocumentationTest {
                 }
                 module.basePackage.contains(".player") -> {
                     System.err.println("║    Type: 👤 BUSINESS DOMAIN MODULE (Player Management)")
-                    System.err.println("║    Purpose: Manages football players, player information, and player operations")
+                    System.err.println(
+                        "║    Purpose: Manages football players, player information, and player operations"
+                    )
                     System.err.println("║    Architecture: Domain → UseCase → Adapter (Clean Architecture)")
                     System.err.println("║    Dependencies: Only 'types' module")
                 }
@@ -100,7 +104,9 @@ class ModulithDocumentationTest {
         System.err.println("║                               MODULE INDEPENDENCE STRATEGY")
         System.err.println("╠═══════════════════════════════════════════════════════════════════════════════════════")
         System.err.println("║")
-        System.err.println("║ 🎯 PROBLEM: Modules need to reference entities from other modules (e.g., Match needs Team)")
+        System.err.println(
+            "║ 🎯 PROBLEM: Modules need to reference entities from other modules (e.g., Match needs Team)"
+        )
         System.err.println("║")
         System.err.println("║ ❌ BAD APPROACH: Import TeamId from team module → creates dependency")
         System.err.println("║    // DON'T DO THIS:")

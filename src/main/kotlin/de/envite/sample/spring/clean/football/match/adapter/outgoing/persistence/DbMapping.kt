@@ -1,16 +1,16 @@
 package de.envite.sample.spring.clean.football.match.adapter.outgoing.persistence
 
 import de.envite.sample.spring.clean.football.match.domain.CountryId
+import de.envite.sample.spring.clean.football.match.domain.Day
 import de.envite.sample.spring.clean.football.match.domain.Goals
 import de.envite.sample.spring.clean.football.match.domain.LeagueId
 import de.envite.sample.spring.clean.football.match.domain.Match
 import de.envite.sample.spring.clean.football.match.domain.MatchApiId
 import de.envite.sample.spring.clean.football.match.domain.MatchId
+import de.envite.sample.spring.clean.football.match.domain.PlayerId
 import de.envite.sample.spring.clean.football.match.domain.PlayerLineup
 import de.envite.sample.spring.clean.football.match.domain.Season
 import de.envite.sample.spring.clean.football.match.domain.Stage
-import de.envite.sample.spring.clean.football.match.domain.PlayerId
-import de.envite.sample.spring.clean.football.match.domain.Day
 import de.envite.sample.spring.clean.football.match.domain.TeamId
 
 fun MatchDto.toMatch(): Match {

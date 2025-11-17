@@ -25,7 +25,11 @@ class Day(value: LocalDate) : TypedLocalDate(value) {
     }
 }
 
-class TeamApiId(value: Int) : TypedInt(value)
+class TeamApiId(value: Int) : TypedInt(value) {
+    companion object {
+        fun fromString(v: String) = v.toInt().let(::TeamApiId)
+    }
+}
 
 class TeamFifaApiId(value: Int) : TypedInt(value)
 

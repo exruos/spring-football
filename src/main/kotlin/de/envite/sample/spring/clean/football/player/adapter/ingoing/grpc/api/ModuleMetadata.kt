@@ -5,4 +5,4 @@ import org.springframework.modulith.PackageInfo
 
 @PackageInfo
 @NamedInterface(name = ["grpc-api"])
-class ModuleMetadata {}
+class ModuleMetadata()

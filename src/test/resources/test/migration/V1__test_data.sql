@@ -1,7 +1,9 @@
-CREATE TABLE country (
-                         id	INTEGER PRIMARY KEY,
-                         name	TEXT UNIQUE
+CREATE TABLE country
+(
+    id   INTEGER PRIMARY KEY,
+    name TEXT UNIQUE
 );
+
 INSERT INTO country VALUES(1,'Belgium');
 INSERT INTO country VALUES(1729,'England');
 INSERT INTO country VALUES(4769,'France');
@@ -44,6 +46,8 @@ INSERT INTO team VALUES(2,9993,675,'Beerschot AC','BAC');
 INSERT INTO team VALUES(3,10000,15005,'SV Zulte-Waregem','ZUL');
 INSERT INTO team VALUES(4,9994,2007,'Sporting Lokeren','LOK');
 INSERT INTO team VALUES(5,9984,1750,'KSV Cercle Brugge','CEB');
+INSERT INTO team VALUES(43053,9906,240,'Atlético Madrid','AMA');
+INSERT INTO team VALUES(45330,7878,110832,'Granada CF','GRA');
 --
 CREATE TABLE player (
                         id	INTEGER PRIMARY KEY,
@@ -64,6 +68,47 @@ INSERT INTO player VALUES(7,564793,'Aaron Kuhl',221280,'1996-01-30 00:00:00',172
 INSERT INTO player VALUES(8,30895,'Aaron Lennon',152747,'1987-04-16 00:00:00',165.0999999999999944,139);
 INSERT INTO player VALUES(9,528212,'Aaron Lennox',206592,'1993-02-19 00:00:00',190.5,181);
 INSERT INTO player VALUES(10,101042,'Aaron Meijers',188621,'1987-10-28 00:00:00',175.259999999999991,170);
+INSERT INTO player VALUES(11,23889,'Aaron Mokoena',47189,'1980-11-25 00:00:00',182.8799999999999955,181);
+INSERT INTO player VALUES(12,231592,'Aaron Mooy',194958,'1990-09-15 00:00:00',175.259999999999991,150);
+INSERT INTO player VALUES(13,163222,'Aaron Muirhead',213568,'1990-08-30 00:00:00',187.9600000000000079,168);
+INSERT INTO player VALUES(14,40719,'Aaron Niguez',183853,'1989-04-26 00:00:00',170.1800000000000068,143);
+INSERT INTO player VALUES(15,75489,'Aaron Ramsey',186561,'1990-12-26 00:00:00',177.8000000000000113,154);
+INSERT INTO player VALUES(16,597948,'Aaron Splaine',226014,'1996-10-13 00:00:00',172.7199999999999989,163);
+INSERT INTO player VALUES(17,161644,'Aaron Taylor-Sinclair',213569,'1991-04-08 00:00:00',182.8799999999999955,176);
+INSERT INTO player VALUES(18,23499,'Aaron Wilbraham',2335,'1979-10-21 00:00:00',190.5,159);
+INSERT INTO player VALUES(19,120919,'Aatif Chahechouhe',187939,'1986-07-02 00:00:00',175.259999999999991,150);
+INSERT INTO player VALUES(20,46447,'Abasse Ba',156626,'1976-07-12 00:00:00',187.9600000000000079,185);
+INSERT INTO player VALUES(21,167027,'Abdelaziz Barrada',192274,'1989-06-19 00:00:00',177.8000000000000113,161);
+INSERT INTO player VALUES(22,245653,'Abdelfettah Boukhriss',202425,'1986-10-22 00:00:00',185.4199999999999875,161);
+INSERT INTO player VALUES(23,128456,'Abdelhamid El Kaoutari',188145,'1990-03-17 00:00:00',180.3400000000000034,161);
+INSERT INTO player VALUES(24,42664,'Abdelkader Ghezzal',178063,'1984-12-05 00:00:00',182.8799999999999955,172);
+INSERT INTO player VALUES(25,425950,'Abdellah Zoubir',212934,'1991-12-05 00:00:00',180.3400000000000034,161);
+INSERT INTO player VALUES(26,38423,'Abdelmajid Oulmers',52782,'1978-09-12 00:00:00',172.7199999999999989,143);
+INSERT INTO player VALUES(27,3264,'Abdelmalek Cherrad',51868,'1981-01-14 00:00:00',185.4199999999999875,165);
+INSERT INTO player VALUES(28,467485,'Abdelmalek El Hasnaoui',209399,'1994-02-09 00:00:00',180.3400000000000034,159);
+INSERT INTO player VALUES(29,306735,'Abdelouahed Chakhsi',210504,'1986-10-01 00:00:00',182.8799999999999955,170);
+INSERT INTO player VALUES(30,41659,'Abderrazak Jadid',149241,'1983-06-01 00:00:00',177.8000000000000113,157);
+INSERT INTO player VALUES(31,31684,'Abdeslam Ouaddou',33022,'1978-11-01 00:00:00',190.5,181);
+INSERT INTO player VALUES(32,32637,'Abdessalam Benjelloun',177295,'1985-01-28 00:00:00',187.9600000000000079,179);
+INSERT INTO player VALUES(33,563215,'Abdou Diallo',225711,'1996-05-04 00:00:00',182.8799999999999955,159);
+INSERT INTO player VALUES(34,41093,'Abdou Traore',187048,'1988-01-17 00:00:00',180.3400000000000034,174);
+INSERT INTO player VALUES(35,564712,'Abdoul Ba',225050,'1994-02-08 00:00:00',200.6599999999999966,212);
+INSERT INTO player VALUES(36,67334,'Abdoul Karim Yoda',188232,'1988-10-25 00:00:00',182.8799999999999955,161);
+INSERT INTO player VALUES(37,173955,'Abdoul Razzagui Camara',193953,'1990-02-20 00:00:00',177.8000000000000113,157);
+INSERT INTO player VALUES(38,39562,'Abdoulay Konko',161999,'1984-03-09 00:00:00',182.8799999999999955,157);
+INSERT INTO player VALUES(39,191784,'Abdoulaye Ba',204826,'1991-01-01 00:00:00',198.1200000000000045,174);
+INSERT INTO player VALUES(40,210400,'Abdoulaye Bamba',199313,'1990-04-25 00:00:00',182.8799999999999955,150);
+INSERT INTO player VALUES(41,201915,'Abdoulaye Diaby',202330,'1991-05-21 00:00:00',172.7199999999999989,154);
+INSERT INTO player VALUES(42,194479,'Abdoulaye Diallo Sadio,22',204171,'1990-12-28 00:00:00',182.8799999999999955,168);
+INSERT INTO player VALUES(43,189181,'Abdoulaye Diallo',197233,'1992-03-30 00:00:00',187.9600000000000079,174);
+INSERT INTO player VALUES(44,352887,'Abdoulaye Doucoure',208135,'1993-01-01 00:00:00',182.8799999999999955,165);
+INSERT INTO player VALUES(45,40005,'Abdoulaye Faye',100329,'1978-02-26 00:00:00',187.9600000000000079,218);
+INSERT INTO player VALUES(46,409003,'Abdoulaye Keita',212280,'1994-01-05 00:00:00',175.259999999999991,165);
+INSERT INTO player VALUES(47,37280,'Abdoulaye Meite',41745,'1980-10-06 00:00:00',185.4199999999999875,181);
+INSERT INTO player VALUES(48,439366,'Abdoulaye Toure',210450,'1994-03-03 00:00:00',187.9600000000000079,170);
+INSERT INTO player VALUES(49,148827,'Abdoulwahid Sissoko',189568,'1990-03-20 00:00:00',182.8799999999999955,165);
+INSERT INTO player VALUES(50,173011,'Abdourahman Dampha',197901,'1991-12-27 00:00:00',182.8799999999999955,168);
+
 --
 CREATE TABLE team_attributes (
 	id	INTEGER PRIMARY KEY,
@@ -122,6 +167,18 @@ INSERT INTO team_attributes VALUES(297,1750,9984,'2012-02-22 00:00:00',68,'Fast'
 INSERT INTO team_attributes VALUES(298,1750,9984,'2013-09-20 00:00:00',53,'Balanced',NULL,'Little',40,'Mixed','Organised',55,'Normal',68,'Lots',42,'Normal','Free Form',59,'Medium',47,'Press',62,'Normal','Cover');
 INSERT INTO team_attributes VALUES(299,1750,9984,'2014-09-19 00:00:00',53,'Balanced',49,'Normal',43,'Mixed','Organised',52,'Normal',58,'Normal',42,'Normal','Organised',59,'Medium',47,'Press',62,'Normal','Cover');
 INSERT INTO team_attributes VALUES(300,1750,9984,'2015-09-10 00:00:00',53,'Balanced',49,'Normal',43,'Mixed','Organised',52,'Normal',58,'Normal',42,'Normal','Organised',59,'Medium',47,'Press',62,'Normal','Cover');
+INSERT INTO team_attributes VALUES(95,240,9906,'2010-02-22 00:00:00',64,'Balanced',NULL,'Little',30,'Short','Free Form',65,'Normal',50,'Normal',70,'Lots','Free Form',70,'High',34,'Press',55,'Normal','Offside Trap');
+INSERT INTO team_attributes VALUES(96,240,9906,'2011-02-22 00:00:00',57,'Balanced',NULL,'Little',54,'Mixed','Organised',58,'Normal',69,'Lots',79,'Lots','Organised',58,'Medium',48,'Press',54,'Normal','Cover');
+INSERT INTO team_attributes VALUES(97,240,9906,'2012-02-22 00:00:00',47,'Balanced',NULL,'Little',51,'Mixed','Organised',67,'Risky',63,'Normal',54,'Normal','Organised',52,'Medium',37,'Press',55,'Normal','Cover');
+INSERT INTO team_attributes VALUES(98,240,9906,'2013-09-20 00:00:00',47,'Balanced',NULL,'Little',51,'Mixed','Organised',70,'Risky',65,'Normal',54,'Normal','Organised',52,'Medium',37,'Press',55,'Normal','Cover');
+INSERT INTO team_attributes VALUES(99,240,9906,'2014-09-19 00:00:00',47,'Balanced',52,'Normal',51,'Mixed','Organised',67,'Risky',67,'Lots',54,'Normal','Organised',52,'Medium',37,'Press',55,'Normal','Cover');
+INSERT INTO team_attributes VALUES(100,240,9906,'2015-09-10 00:00:00',57,'Balanced',50,'Normal',50,'Mixed','Organised',61,'Normal',62,'Normal',49,'Normal','Organised',49,'Medium',42,'Press',52,'Normal','Cover');
+INSERT INTO team_attributes VALUES(525,110832,7878,'2011-02-22 00:00:00',53,'Balanced',NULL,'Little',52,'Mixed','Organised',54,'Normal',59,'Normal',55,'Normal','Organised',54,'Medium',49,'Press',67,'Wide','Cover');
+INSERT INTO team_attributes VALUES(526,110832,7878,'2012-02-22 00:00:00',48,'Balanced',NULL,'Little',37,'Mixed','Organised',72,'Risky',76,'Lots',52,'Normal','Organised',49,'Medium',45,'Press',68,'Wide','Cover');
+INSERT INTO team_attributes VALUES(527,110832,7878,'2013-09-20 00:00:00',52,'Balanced',NULL,'Little',37,'Mixed','Organised',72,'Risky',76,'Lots',52,'Normal','Organised',49,'Medium',45,'Press',68,'Wide','Cover');
+INSERT INTO team_attributes VALUES(528,110832,7878,'2014-09-19 00:00:00',52,'Balanced',62,'Normal',37,'Mixed','Organised',67,'Risky',68,'Lots',52,'Normal','Organised',49,'Medium',45,'Press',64,'Normal','Cover');
+INSERT INTO team_attributes VALUES(529,110832,7878,'2015-09-10 00:00:00',57,'Balanced',50,'Normal',59,'Mixed','Organised',61,'Normal',63,'Normal',51,'Normal','Organised',48,'Medium',45,'Press',62,'Normal','Cover');
+
 --
 CREATE TABLE IF NOT EXISTS player_attributes (
      id	INTEGER PRIMARY KEY,

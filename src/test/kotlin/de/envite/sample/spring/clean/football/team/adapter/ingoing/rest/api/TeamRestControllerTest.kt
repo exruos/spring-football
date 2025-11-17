@@ -60,5 +60,23 @@ class TeamRestControllerTest {
             .statusCode(HttpStatus.NOT_FOUND.value())
     }
 
+    @Test
+    internal fun `finds team by api id`() {
+        given().get(getUri() + "/teams/api-id/9987")
+            .then()
+            .contentType(ContentType.JSON)
+            .statusCode(HttpStatus.OK.value())
+            .assertThat()
+            .body("name", equalTo("KRC Genk"))
+            .body("shortName", equalTo("GEN"))
+    }
+
+    @Test
+    internal fun `returns not found for unknown team api id`() {
+        given().get(getUri() + "/teams/api-id/99999")
+            .then()
+            .statusCode(HttpStatus.NOT_FOUND.value())
+    }
+
     fun getUri() = "http://localhost:$port"
 }

@@ -17,4 +17,13 @@ interface TeamCrudRepository : CrudRepository<TeamDto, Int> {
         @Param("team_fifa_api_id") fifaApiId: Int,
         @Param("team_api_id") apiId: Int
     ): List<TeamAttributesDto>
+
+    @Query(
+        """
+			SELECT *
+		    FROM team
+			WHERE team_api_id = :team_api_id
+			"""
+    )
+    fun findByTeamApiId(@Param("team_api_id") apiId: Int): TeamDto?
 }
