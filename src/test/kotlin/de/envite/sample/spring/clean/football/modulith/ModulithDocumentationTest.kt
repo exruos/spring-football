@@ -38,6 +38,7 @@ class ModulithDocumentationTest {
         System.err.println("      • module-*.puml - Individual module diagrams")
     }
 
+    @Suppress("LongMethod")
     @Test
     fun `should document modulith architecture and configuration`() {
         val modules = ApplicationModules.of("de.envite.sample.spring.clean.football")

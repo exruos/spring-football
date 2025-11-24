@@ -88,15 +88,13 @@ class BoundaryVerificationTest {
         println("\n✅ Clean architecture boundaries are properly enforced!")
     }
 
+    @Suppress("SwallowedException")
     @Test
     fun `should verify no cross module dependencies exist`() {
         val modules = ApplicationModules.of("de.envite.sample.spring.clean.football")
 
         System.err.println("\n=== CROSS-MODULE DEPENDENCY VALIDATION ===")
         System.err.println("Verifying that modules only depend on allowed dependencies...")
-
-        var hasViolations = false
-        val violationReport = mutableListOf<String>()
 
         modules.forEach { module ->
             when {
@@ -120,10 +118,10 @@ class BoundaryVerificationTest {
             modules.verify()
             System.err.println("✅ SUCCESS: No cross-module dependencies detected!")
             System.err.println("✅ Module independence verified: Local type definitions working correctly!")
-        } catch (violations: org.springframework.modulith.core.Violations) {
+        } catch (e: Exception) {
             System.err.println("❌ FAILURE: Cross-module dependency violations detected!")
-            System.err.println("Violations: ${violations.message}")
-            throw AssertionError("Module boundary violations found: ${violations.message}")
+            System.err.println("Violations: ${e.message}")
+            throw AssertionError("Module boundary violations found: ${e.message}")
         }
     }
 }

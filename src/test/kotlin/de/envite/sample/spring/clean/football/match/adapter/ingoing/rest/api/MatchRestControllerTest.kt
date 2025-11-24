@@ -57,5 +57,42 @@ class MatchRestControllerTest {
             .body("size()", equalTo(0))
     }
 
+    @Test
+    fun getResultTableWorks() {
+        given()
+            .queryParam("season", "2023/2024")
+            .queryParam("leagueName", "Test League")
+            .get(getUri() + "/matches/result-table")
+            .then()
+            .contentType(ContentType.JSON)
+            .statusCode(HttpStatus.OK.value())
+            .assertThat()
+            .body("size()", equalTo(3))
+            .body("[0].teamId", equalTo(10003))
+            .body("[0].points", equalTo(4))
+            .body("[0].wins", equalTo(1))
+            .body("[0].draws", equalTo(1))
+            .body("[0].losses", equalTo(0))
+            .body("[0].goalsScored", equalTo(4))
+            .body("[0].goalsConceded", equalTo(2))
+            .body("[1].teamId", equalTo(10001))
+            .body("[1].points", equalTo(3))
+            .body("[2].teamId", equalTo(10002))
+            .body("[2].points", equalTo(1))
+    }
+
+    @Test
+    fun getResultTableReturnsEmptyForNonExistingLeague() {
+        given()
+            .queryParam("season", "2023/2024")
+            .queryParam("leagueName", "Non Existing League")
+            .get(getUri() + "/matches/result-table")
+            .then()
+            .contentType(ContentType.JSON)
+            .statusCode(HttpStatus.OK.value())
+            .assertThat()
+            .body("size()", equalTo(0))
+    }
+
     fun getUri() = "http://localhost:$port"
 }

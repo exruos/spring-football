@@ -29,3 +29,13 @@ data class PlayerLineupResource(
     val player10: Int?,
     val player11: Int?
 )
+
+data class ResultTableRowResource(
+    val teamId: Int,
+    val points: Int,
+    val wins: Int,
+    val draws: Int,
+    val losses: Int,
+    val goalsScored: Int,
+    val goalsConceded: Int
+)

@@ -2,6 +2,7 @@ package de.envite.sample.spring.clean.football.match.adapter.ingoing.rest.api
 
 import de.envite.sample.spring.clean.football.match.domain.Match
 import de.envite.sample.spring.clean.football.match.domain.PlayerLineup
+import de.envite.sample.spring.clean.football.match.domain.ResultTableRow
 import org.springframework.stereotype.Component
 
 @Component
@@ -38,6 +39,18 @@ class EntityToRestResourceMapper {
             player9 = lineup.player9?.value,
             player10 = lineup.player10?.value,
             player11 = lineup.player11?.value
+        )
+    }
+
+    fun toResultTableRowResource(row: ResultTableRow): ResultTableRowResource {
+        return ResultTableRowResource(
+            teamId = row.teamId.value,
+            points = row.points,
+            wins = row.wins,
+            draws = row.draws,
+            losses = row.losses,
+            goalsScored = row.goalsScored,
+            goalsConceded = row.goalsConceded
         )
     }
 }

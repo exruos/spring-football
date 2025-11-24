@@ -77,3 +77,14 @@ class Day(value: LocalDate) : TypedLocalDate(value) {
         fun fromString(v: String) = LocalDateTime.parse(v, formatter).toLocalDate().let(::Day)
     }
 }
+
+// Result table representation
+data class ResultTableRow(
+    val teamId: TeamId,
+    val points: Int,
+    val wins: Int,
+    val draws: Int,
+    val losses: Int,
+    val goalsScored: Int,
+    val goalsConceded: Int
+)

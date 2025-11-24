@@ -25,7 +25,7 @@ Wie eine Ausführung mit GMT möglich ist, wird unten im Abschnitt [Energiemessu
 [Das Paketo Buildpack for Health Checker](https://github.com/paketo-buildpacks/health-checker) wird genutzt, um den Health-Status der Applikation zu überwachen.
 Für die Messung mit GMT ist das wichtig, damit GMT weiß, ab wann die Anwendung mit dem Start fertig ist und der eigentliche Workflow beginnen kann.
 
-## Erstellung des Datbank Containers
+## Erstellung des Datenbank Containers
 
 Erstellung eines Datenbank-Dumps aus einer lokalen DB Instanz
 ```shell
