@@ -134,6 +134,8 @@ tasks {
 
     withType<Test> {
         useJUnitPlatform()
+        maxParallelForks = 1
+        maxHeapSize = "1g"
     }
 
     withType<Test>().configureEach {

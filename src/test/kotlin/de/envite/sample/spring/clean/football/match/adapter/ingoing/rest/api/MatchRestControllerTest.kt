@@ -1,5 +1,6 @@
 package de.envite.sample.spring.clean.football.match.adapter.ingoing.rest.api
 
+import de.envite.sample.spring.clean.football.TestcontainersConfiguration
 import io.restassured.RestAssured.given
 import io.restassured.http.ContentType
 import org.hamcrest.CoreMatchers.equalTo
@@ -7,15 +8,15 @@ import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
 import org.springframework.boot.test.web.server.LocalServerPort
+import org.springframework.context.annotation.Import
 import org.springframework.http.HttpStatus
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
-import org.testcontainers.junit.jupiter.Testcontainers
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ActiveProfiles("test")
-@Testcontainers
+@Import(TestcontainersConfiguration::class)
 @TestConstructor(autowireMode = ALL)
 class MatchRestControllerTest {
     @LocalServerPort

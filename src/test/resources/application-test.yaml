@@ -1,12 +1,17 @@
 spring:
-  datasource:
-    url: jdbc:tc:postgresql:17.5:///integration-test
-    username: user
-    password: password
-    driver-class-name: org.testcontainers.jdbc.ContainerDatabaseDriver
   flyway:
     locations: classpath:test/migration
   data:
     jdbc:
       repositories:
         enabled: true
+  datasource:
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 0
+      idle-timeout: 10000
+      max-lifetime: 3000
+      connection-timeout: 5000
+      leak-detection-threshold: 0
+      initialization-fail-timeout: -1
+      pool-name: TestHikariPool

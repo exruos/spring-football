@@ -12,6 +12,7 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
 )
 @Import(
     MatchRepository::class,
-    MatchByTeamRepository::class
+    MatchByTeamRepository::class,
+    MatchBySeasonAndLeagueRepository::class
 )
 class MatchPersistenceConfiguration

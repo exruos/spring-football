@@ -8,12 +8,10 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
-import org.testcontainers.junit.jupiter.Testcontainers
 import kotlin.test.assertFails
 
 @SpringBootTest(classes = [TeamLogicTestConfiguration::class])
 @ActiveProfiles("test")
-@Testcontainers
 @TestConstructor(autowireMode = ALL)
 internal class FindTeamInteractorRecordTest(
     val getTeamRecord: FindTeamRecordInteractor,

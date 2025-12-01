@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Import
 
 @Import(
     FindMatchInteractor::class,
-    FindMatchesByTeamInteractor::class
+    FindMatchesByTeamInteractor::class,
+    GetResultTableInteractor::class
 )
 @Configuration
 class MatchLogicConfiguration

@@ -6,11 +6,9 @@ import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
-import org.testcontainers.junit.jupiter.Testcontainers
 
 @SpringBootTest(classes = [TeamPersistenceTestConfiguration::class])
 @ActiveProfiles("test")
-@Testcontainers
 @TestConstructor(autowireMode = ALL)
 internal class TeamCrudRepositoryTest(
     private val teamCrudRepository: TeamCrudRepository

@@ -11,7 +11,8 @@ import org.springframework.test.context.ActiveProfiles
 @Import(
     PlayerRestModuleConfiguration::class,
     TeamRestModuleConfiguration::class,
-    MatchRestModuleConfiguration::class
+    MatchRestModuleConfiguration::class,
+    TestcontainersConfiguration::class
 )
 @SpringBootTest
 @ActiveProfiles("test")

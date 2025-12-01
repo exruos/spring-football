@@ -12,6 +12,16 @@ class TestcontainersConfiguration {
     @Bean
     @ServiceConnection
     fun postgresContainer(): PostgreSQLContainer<*> {
-        return PostgreSQLContainer(DockerImageName.parse("postgres:latest"))
+        return postgresContainer
+    }
+
+    companion object {
+        private val postgresContainer: PostgreSQLContainer<*> by lazy {
+            PostgreSQLContainer(DockerImageName.parse("postgres:17.5"))
+                .apply {
+                    withReuse(false)
+                    start()
+                }
+        }
     }
 }
