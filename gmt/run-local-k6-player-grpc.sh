@@ -3,8 +3,8 @@ set -euo pipefail
 
 GMT_PATH=$HOME/green-metrics-tool
 
-NAME="Spring Clean Football - gRPC (k6)"
-FILENAME="usage_scenario-k6-grpc.yml"
+NAME="Spring Clean Football - player gRPC (k6)"
+FILENAME="usage_scenario-k6-player-grpc.yml"
 URI="$PWD"
 
 cd $GMT_PATH

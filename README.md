@@ -93,13 +93,13 @@ artillery run client/artillery_test.yml
 Ausführung eines Lasttest-Szenarios für mit K6 für REST:
 
 ```sh
-k6 run client/k6_http_test.js
+k6 run client/k6_player_http_test.js
 ```
 
 Ausführung eines Lasttest-Szenarios mit K6 für gRPC:
 
 ```sh
-k6 run client/k6_grpc_test.js
+k6 run client/k6_player_grpc_test.js
 ```
 
 ## Energiemessung mit dem Green Metrics Tool
