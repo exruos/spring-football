@@ -19,23 +19,15 @@ class TeamRestController(
     private val entityToRestResourceMapper: EntityToRestResourceMapper
 ) {
     @RequestMapping("/teams/{id}", method = [GET])
-    fun getTeamById(@PathVariable id: String): ResponseEntity<TeamResource?> {
+    fun getTeamById(@PathVariable id: String): ResponseEntity<*> {
         val team = findTeam(TeamId.fromString(id))
-        return if (team == null) {
-            ResponseEntity.notFound().build()
-        } else {
-            ResponseEntity.ok().body(entityToRestResourceMapper.toTeamResource(team))
-        }
+        return ResponseEntity.ok(team?.let { entityToRestResourceMapper.toTeamResource(it) })
     }
 
     @RequestMapping("/teams/api-id/{apiId}", method = [GET])
-    fun getTeamByApiId(@PathVariable apiId: String): ResponseEntity<TeamResource?> {
+    fun getTeamByApiId(@PathVariable apiId: String): ResponseEntity<*> {
         val team = findTeamByApiId(TeamApiId.fromString(apiId))
-        return if (team == null) {
-            ResponseEntity.notFound().build()
-        } else {
-            ResponseEntity.ok().body(entityToRestResourceMapper.toTeamResource(team))
-        }
+        return ResponseEntity.ok(team?.let { entityToRestResourceMapper.toTeamResource(it) })
     }
 
     @RequestMapping("/teams/record/{id}", method = [GET])

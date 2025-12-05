@@ -4,9 +4,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
-    kotlin("jvm") version "2.2.20"
-    kotlin("plugin.spring") version "2.2.20"
-    id("org.springframework.boot") version "3.5.8"
+    kotlin("jvm") version "2.2.21"
+    kotlin("plugin.spring") version "2.2.21"
+    id("org.springframework.boot") version "4.0.0"
     id("io.spring.dependency-management") version "1.1.7"
     id("io.gitlab.arturbosch.detekt") version "1.23.8"
     id("com.google.protobuf") version "0.9.5"
@@ -23,40 +23,37 @@ java {
 
 repositories {
     mavenCentral()
-    maven("https://repo.spring.io/milestone")
-    maven("https://repo.spring.io/snapshot")
 }
 
-extra["springGrpcVersion"] = "0.11.0"
-extra["springModulithVersion"] = "1.4.4"
+extra["springGrpcVersion"] = "1.0.0"
+extra["springModulithVersion"] = "2.0.0"
 
 dependencies {
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+    implementation("tools.jackson.module:jackson-module-kotlin")
     implementation("net.logstash.logback:logstash-logback-encoder:8.0")
-    implementation("org.springframework.grpc:spring-grpc-spring-boot-starter")
+    implementation("io.grpc:grpc-services")
     implementation("org.springframework.grpc:spring-grpc-server-web-spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
     implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
     implementation("org.flywaydb:flyway-core")
     implementation("org.flywaydb:flyway-database-postgresql")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
     runtimeOnly("org.postgresql:postgresql")
 
     // Spring Modulith dependencies
-    implementation("org.springframework.modulith:spring-modulith-api")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
+    runtimeOnly("org.springframework.modulith:spring-modulith-actuator")
+    runtimeOnly("org.springframework.modulith:spring-modulith-observability")
 
     testImplementation("com.ninja-squad:springmockk:4.0.2")
-    testImplementation("io.rest-assured:spring-mock-mvc")
+    testImplementation("io.rest-assured:spring-mock-mvc:5.5.0")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")
-    testImplementation("org.testcontainers:testcontainers:2.0.2")
-    testImplementation("org.testcontainers:junit-jupiter")
-    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.springframework.grpc:spring-grpc-test")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
-    testImplementation("org.springframework.modulith:spring-modulith-docs")
+    testImplementation("org.testcontainers:junit-jupiter:1.21.3")
+    testImplementation("org.testcontainers:postgresql:1.21.3")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     // Additional Detekt rules (Previously part of detekt)
@@ -85,7 +82,7 @@ dependencyManagement {
 
 kotlin {
     compilerOptions {
-        freeCompilerArgs.addAll("-Xjsr305=strict")
+        freeCompilerArgs.addAll("-Xjsr305=strict", "-Xannotation-default-target=param-property")
     }
 }
 

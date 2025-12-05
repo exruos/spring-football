@@ -24,7 +24,7 @@ class MatchRestControllerTest {
 
     @Test
     fun getMatchByIdWorks() {
-        given().get(getUri() + "/matches/24446")
+        given().get(getUri() + "/match/24446")
             .then()
             .contentType(ContentType.JSON)
             .statusCode(HttpStatus.OK.value())
@@ -35,14 +35,14 @@ class MatchRestControllerTest {
 
     @Test
     fun getMatchByIdNotFound() {
-        given().get(getUri() + "/matches/9999")
+        given().get(getUri() + "/match/9999")
             .then()
-            .statusCode(HttpStatus.NOT_FOUND.value())
+            .statusCode(HttpStatus.OK.value())
     }
 
     @Test
     fun getMatchesByTeamIdWorks() {
-        given().get(getUri() + "/matches/team/9906")
+        given().get(getUri() + "/match/team/9906")
             .then()
             .contentType(ContentType.JSON)
             .statusCode(HttpStatus.OK.value())
@@ -50,7 +50,7 @@ class MatchRestControllerTest {
 
     @Test
     fun getMatchesByTeamIdEmpty() {
-        given().get(getUri() + "/matches/team/999999")
+        given().get(getUri() + "/match/team/999999")
             .then()
             .contentType(ContentType.JSON)
             .statusCode(HttpStatus.OK.value())
@@ -63,7 +63,7 @@ class MatchRestControllerTest {
         given()
             .queryParam("season", "2023/2024")
             .queryParam("leagueName", "Test League")
-            .get(getUri() + "/matches/result-table")
+            .get(getUri() + "/match/result-table")
             .then()
             .contentType(ContentType.JSON)
             .statusCode(HttpStatus.OK.value())
@@ -87,7 +87,7 @@ class MatchRestControllerTest {
         given()
             .queryParam("season", "2023/2024")
             .queryParam("leagueName", "Non Existing League")
-            .get(getUri() + "/matches/result-table")
+            .get(getUri() + "/match/result-table")
             .then()
             .contentType(ContentType.JSON)
             .statusCode(HttpStatus.OK.value())

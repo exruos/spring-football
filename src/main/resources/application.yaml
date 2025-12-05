@@ -5,12 +5,12 @@ spring:
     virtual:
       enabled: false
   datasource:
-    url: jdbc:postgresql://localhost:5438/postgres
+    url: jdbc:postgresql://postgres-db-clean-service:5438/postgres
     username: postgres
     password: postgres
     hikari:
       max-lifetime: 600000
-      maximum-pool-size: 100 # default: 10
+      maximum-pool-size: 75 # default: 10
   flyway:
     locations: classpath:db/migration
   data:

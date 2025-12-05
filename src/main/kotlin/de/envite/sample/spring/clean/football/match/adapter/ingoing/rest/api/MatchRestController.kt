@@ -19,24 +19,20 @@ class MatchRestController(
     private val getResultTable: GetResultTable,
     private val entityToRestResourceMapper: EntityToRestResourceMapper
 ) {
-    @RequestMapping("/matches/{id}", method = [GET])
-    fun getMatchById(@PathVariable id: String): ResponseEntity<MatchResource?> {
+    @RequestMapping("/match/{id}", method = [GET])
+    fun getMatchById(@PathVariable id: String): ResponseEntity<*> {
         val match = findMatch(MatchId.fromString(id))
-        return if (match == null) {
-            ResponseEntity.notFound().build()
-        } else {
-            ResponseEntity.ok().body(entityToRestResourceMapper.toMatchResource(match))
-        }
+        return ResponseEntity.ok(match?.let { entityToRestResourceMapper.toMatchResource(it) })
     }
 
-    @RequestMapping("/matches/team/{teamId}", method = [GET])
+    @RequestMapping("/match/team/{teamId}", method = [GET])
     fun getMatchesByTeamId(@PathVariable teamId: String): ResponseEntity<List<MatchResource>> {
         val matches = findMatchesByTeam(TeamId.fromString(teamId))
         val matchResources = matches.map { entityToRestResourceMapper.toMatchResource(it) }
         return ResponseEntity.ok().body(matchResources)
     }
 
-    @RequestMapping("/matches/result-table", method = [GET])
+    @RequestMapping("/match/result-table", method = [GET])
     fun getResultTableBySeasonAndLeague(
         @RequestParam season: String,
         @RequestParam leagueName: String
