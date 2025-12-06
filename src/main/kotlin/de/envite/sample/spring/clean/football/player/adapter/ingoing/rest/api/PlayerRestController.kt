@@ -16,9 +16,13 @@ class PlayerRestController(
     private val entityToRestResourceMapper: EntityToRestResourceMapper
 ) {
     @RequestMapping("/players/{id}", method = [GET])
-    fun getPlayerById(@PathVariable id: String): ResponseEntity<*> {
+    fun getPlayerById(@PathVariable id: String): ResponseEntity<PlayerResource> {
         val player = findPlayer(PlayerId.fromString(id))
-        return ResponseEntity.ok(player?.let { entityToRestResourceMapper.toPlayerResource(it) })
+        return if (player == null) {
+            ResponseEntity.notFound().build()
+        } else {
+            ResponseEntity.ok().body(entityToRestResourceMapper.toPlayerResource(player))
+        }
     }
 
     @RequestMapping("/players/record/{id}", method = [GET])

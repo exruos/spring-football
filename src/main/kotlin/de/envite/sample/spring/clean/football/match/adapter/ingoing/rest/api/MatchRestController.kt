@@ -20,9 +20,13 @@ class MatchRestController(
     private val entityToRestResourceMapper: EntityToRestResourceMapper
 ) {
     @RequestMapping("/match/{id}", method = [GET])
-    fun getMatchById(@PathVariable id: String): ResponseEntity<*> {
+    fun getMatchById(@PathVariable id: String): ResponseEntity<MatchResource> {
         val match = findMatch(MatchId.fromString(id))
-        return ResponseEntity.ok(match?.let { entityToRestResourceMapper.toMatchResource(it) })
+        return if (match == null) {
+            ResponseEntity.notFound().build()
+        } else {
+            ResponseEntity.ok().body(entityToRestResourceMapper.toMatchResource(match))
+        }
     }
 
     @RequestMapping("/match/team/{teamId}", method = [GET])

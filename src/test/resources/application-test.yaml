@@ -1,6 +1,12 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   flyway:
+    enabled: true
     locations: classpath:test/migration
+  sql:
+    init:
+      mode: never
   data:
     jdbc:
       repositories:

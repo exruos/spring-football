@@ -19,6 +19,7 @@ import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
 
 @TestConfiguration
+@Import(TestcontainersConfiguration::class)
 class ExtraConfiguration {
     @Bean
     @Lazy
@@ -28,7 +29,7 @@ class ExtraConfiguration {
 }
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
-@Import(ExtraConfiguration::class, TestcontainersConfiguration::class)
+@Import(ExtraConfiguration::class)
 @ActiveProfiles("test")
 @TestConstructor(autowireMode = ALL)
 class PlayerGrpcControllerTest(

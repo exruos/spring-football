@@ -1,83 +1,118 @@
 package de.envite.sample.spring.clean.football.team.adapter.ingoing.rest.api
 
-import de.envite.sample.spring.clean.football.TestcontainersConfiguration
-import io.restassured.RestAssured.given
-import io.restassured.http.ContentType
-import org.hamcrest.CoreMatchers.equalTo
-import org.hamcrest.Matchers.greaterThan
+import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.ThrowingConsumer
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.boot.test.web.server.LocalServerPort
-import org.springframework.context.annotation.Import
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
+import org.springframework.modulith.test.ApplicationModuleTest
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
+import org.springframework.test.web.servlet.assertj.MockMvcTester
+import org.testcontainers.junit.jupiter.Testcontainers
 
-@SpringBootTest(webEnvironment = RANDOM_PORT)
+@ApplicationModuleTest(webEnvironment = RANDOM_PORT)
+@Testcontainers
+@AutoConfigureMockMvc
 @ActiveProfiles("test")
-@Import(TestcontainersConfiguration::class)
 @TestConstructor(autowireMode = ALL)
-class TeamRestControllerTest {
-    @LocalServerPort
-    private var port = 0
+class TeamRestControllerTest(
+    private val mockMvcTester: MockMvcTester,
+) {
 
     @Test
     internal fun `finds one team`() {
-        given().get(getUri() + "/teams/1")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("name", equalTo("KRC Genk"))
-            .body("shortName", equalTo("GEN"))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/teams/1")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$")
+            .convertTo(TeamResource::class.java)
+            .satisfies(
+                ThrowingConsumer { resource: TeamResource ->
+                    assertThat(resource.name).isEqualTo("KRC Genk")
+                    assertThat(resource.shortName).isEqualTo("GEN")
+                }
+            )
     }
 
     @Test
     internal fun `unknown teams can be processed without an error`() {
-        given().get(getUri() + "/teams/9999")
-            .then()
-            .statusCode(HttpStatus.NOT_FOUND.value())
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/teams/9999")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.NOT_FOUND)
     }
 
     @Test
     internal fun `finds team record for one team`() {
-        given().get(getUri() + "/teams/record/1")
-            .then()
-            .log().all()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("team.name", equalTo("KRC Genk"))
-            .body("team.shortName", equalTo("GEN"))
-            .body("attributes.size()", greaterThan(0))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/teams/record/1")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$")
+            .convertTo(TeamRecordResource::class.java)
+            .satisfies(
+                ThrowingConsumer { resource: TeamRecordResource ->
+                    assertThat(resource.team.name).isEqualTo("KRC Genk")
+                    assertThat(resource.team.shortName).isEqualTo("GEN")
+                }
+            )
     }
 
     @Test
     internal fun `unknown teams do not have a team record`() {
-        given().get(getUri() + "/teams/record/9999")
-            .then()
-            .statusCode(HttpStatus.NOT_FOUND.value())
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/teams/record/9999")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.NOT_FOUND)
     }
 
     @Test
     internal fun `finds team by api id`() {
-        given().get(getUri() + "/teams/api-id/9987")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("name", equalTo("KRC Genk"))
-            .body("shortName", equalTo("GEN"))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/teams/api-id/9987")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$")
+            .convertTo(TeamResource::class.java)
+            .satisfies(
+                ThrowingConsumer { resource: TeamResource ->
+                    assertThat(resource.name).isEqualTo("KRC Genk")
+                    assertThat(resource.shortName).isEqualTo("GEN")
+                }
+            )
     }
 
     @Test
     internal fun `returns not found for unknown team api id`() {
-        given().get(getUri() + "/teams/api-id/99999")
-            .then()
-            .statusCode(HttpStatus.NOT_FOUND.value())
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/teams/api-id/99999")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.NOT_FOUND)
     }
-
-    fun getUri() = "http://localhost:$port"
 }

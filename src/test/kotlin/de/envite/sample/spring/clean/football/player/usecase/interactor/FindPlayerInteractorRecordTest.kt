@@ -1,20 +1,19 @@
 package de.envite.sample.spring.clean.football.player.usecase.interactor
 
-import de.envite.sample.spring.clean.football.TestcontainersConfiguration
 import de.envite.sample.spring.clean.football.player.domain.PlayerId
 import de.envite.sample.spring.clean.football.player.domain.PlayerName
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.Import
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
+import org.testcontainers.junit.jupiter.Testcontainers
 import kotlin.test.assertFails
 
 @SpringBootTest()
 @ActiveProfiles("test")
-@Import(TestcontainersConfiguration::class)
+@Testcontainers
 @TestConstructor(autowireMode = ALL)
 internal class FindPlayerInteractorRecordTest(
     val getPlayerRecord: FindPlayerRecordInteractor,

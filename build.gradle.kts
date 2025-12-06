@@ -46,7 +46,7 @@ dependencies {
     runtimeOnly("org.springframework.modulith:spring-modulith-observability")
 
     testImplementation("com.ninja-squad:springmockk:4.0.2")
-    testImplementation("io.rest-assured:spring-mock-mvc:5.5.0")
+    testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-testcontainers")

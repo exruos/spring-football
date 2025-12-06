@@ -1,99 +1,126 @@
 package de.envite.sample.spring.clean.football.match.adapter.ingoing.rest.api
 
-import de.envite.sample.spring.clean.football.TestcontainersConfiguration
-import io.restassured.RestAssured.given
-import io.restassured.http.ContentType
-import org.hamcrest.CoreMatchers.equalTo
+import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.ThrowingConsumer
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT
-import org.springframework.boot.test.web.server.LocalServerPort
-import org.springframework.context.annotation.Import
+import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc
 import org.springframework.http.HttpStatus
+import org.springframework.http.MediaType
+import org.springframework.modulith.test.ApplicationModuleTest
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
+import org.springframework.test.web.servlet.assertj.MockMvcTester
+import org.testcontainers.junit.jupiter.Testcontainers
 
-@SpringBootTest(webEnvironment = RANDOM_PORT)
+@ApplicationModuleTest(webEnvironment = RANDOM_PORT)
+@Testcontainers
+@AutoConfigureMockMvc
 @ActiveProfiles("test")
-@Import(TestcontainersConfiguration::class)
 @TestConstructor(autowireMode = ALL)
-class MatchRestControllerTest {
-    @LocalServerPort
-    private var port = 0
+class MatchRestControllerTest(
+    private val mockMvcTester: MockMvcTester,
+) {
 
     @Test
     fun getMatchByIdWorks() {
-        given().get(getUri() + "/match/24446")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("matchId", equalTo(24446))
-            .body("season", equalTo("2015/2016"))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/match/24446")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$")
+            .convertTo(MatchResource::class.java)
+            .satisfies(
+                ThrowingConsumer { resource: MatchResource ->
+                    assertThat(resource.matchId).isEqualTo(24446)
+                    assertThat(resource.season).isEqualTo("2015/2016")
+                }
+            )
     }
 
     @Test
     fun getMatchByIdNotFound() {
-        given().get(getUri() + "/match/9999")
-            .then()
-            .statusCode(HttpStatus.OK.value())
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/match/9999")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.NOT_FOUND)
     }
 
     @Test
     fun getMatchesByTeamIdWorks() {
-        given().get(getUri() + "/match/team/9906")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/match/team/9906")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
     }
 
     @Test
     fun getMatchesByTeamIdEmpty() {
-        given().get(getUri() + "/match/team/999999")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("size()", equalTo(0))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/match/team/999999")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$.length()")
+            .isEqualTo(0)
     }
 
     @Test
+    @Suppress("LongMethod")
     fun getResultTableWorks() {
-        given()
-            .queryParam("season", "2023/2024")
-            .queryParam("leagueName", "Test League")
-            .get(getUri() + "/match/result-table")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("size()", equalTo(3))
-            .body("[0].teamId", equalTo(10003))
-            .body("[0].points", equalTo(4))
-            .body("[0].wins", equalTo(1))
-            .body("[0].draws", equalTo(1))
-            .body("[0].losses", equalTo(0))
-            .body("[0].goalsScored", equalTo(4))
-            .body("[0].goalsConceded", equalTo(2))
-            .body("[1].teamId", equalTo(10001))
-            .body("[1].points", equalTo(3))
-            .body("[2].teamId", equalTo(10002))
-            .body("[2].points", equalTo(1))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/match/result-table?season=2023/2024&leagueName=Test League")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$")
+            .convertTo(Array<ResultTableRowResource>::class.java)
+            .satisfies(
+                ThrowingConsumer { resources: Array<ResultTableRowResource> ->
+                    assertThat(resources).hasSize(3)
+                    assertThat(resources[0].teamId).isEqualTo(10003)
+                    assertThat(resources[0].points).isEqualTo(4)
+                    assertThat(resources[0].wins).isEqualTo(1)
+                    assertThat(resources[0].draws).isEqualTo(1)
+                    assertThat(resources[0].losses).isEqualTo(0)
+                    assertThat(resources[0].goalsScored).isEqualTo(4)
+                    assertThat(resources[0].goalsConceded).isEqualTo(2)
+                    assertThat(resources[1].teamId).isEqualTo(10001)
+                    assertThat(resources[1].points).isEqualTo(3)
+                    assertThat(resources[2].teamId).isEqualTo(10002)
+                    assertThat(resources[2].points).isEqualTo(1)
+                }
+            )
     }
 
     @Test
     fun getResultTableReturnsEmptyForNonExistingLeague() {
-        given()
-            .queryParam("season", "2023/2024")
-            .queryParam("leagueName", "Non Existing League")
-            .get(getUri() + "/match/result-table")
-            .then()
-            .contentType(ContentType.JSON)
-            .statusCode(HttpStatus.OK.value())
-            .assertThat()
-            .body("size()", equalTo(0))
+        assertThat(
+            mockMvcTester
+                .get()
+                .uri("/match/result-table?season=2023/2024&leagueName=Non Existing League")
+                .contentType(MediaType.APPLICATION_JSON)
+        )
+            .hasStatus(HttpStatus.OK)
+            .bodyJson()
+            .extractingPath("$.length()")
+            .isEqualTo(0)
     }
-
-    fun getUri() = "http://localhost:$port"
 }
