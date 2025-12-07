@@ -6,7 +6,10 @@ import de.envite.sample.spring.clean.football.match.domain.ResultTableRow
 import org.springframework.stereotype.Component
 
 @Component
-class EntityToRestResourceMapper {
+class EntityToRestResourceMapper(
+    private val teamNameResolver: TeamNameResolver,
+    private val properties: TeamNameResolverProperties
+) {
 
     fun toMatchResource(match: Match): MatchResource {
         return MatchResource(
@@ -19,6 +22,8 @@ class EntityToRestResourceMapper {
             matchApiId = match.matchApiId.value,
             homeTeamId = match.homeTeamId.value,
             awayTeamId = match.awayTeamId.value,
+            homeTeamName = teamNameResolver.resolveTeamName(match.homeTeamId),
+            awayTeamName = teamNameResolver.resolveTeamName(match.awayTeamId),
             homeTeamGoal = match.homeTeamGoal?.value,
             awayTeamGoal = match.awayTeamGoal?.value,
             homePlayerLineup = toPlayerLineupResource(match.homePlayerLineup),
@@ -45,6 +50,7 @@ class EntityToRestResourceMapper {
     fun toResultTableRowResource(row: ResultTableRow): ResultTableRowResource {
         return ResultTableRowResource(
             teamId = row.teamId.value,
+            teamName = teamNameResolver.resolveTeamName(row.teamId),
             points = row.points,
             wins = row.wins,
             draws = row.draws,
@@ -52,5 +58,35 @@ class EntityToRestResourceMapper {
             goalsScored = row.goalsScored,
             goalsConceded = row.goalsConceded
         )
+    }
+
+    /**
+     * Batch conversion of result table rows to resources.
+     * Uses batch fetching when configured with POJO_BATCH_WITH_CACHE strategy,
+     * otherwise falls back to individual fetching.
+     */
+    fun toResultTableRowResources(rows: List<ResultTableRow>): List<ResultTableRowResource> {
+        if (rows.isEmpty()) return emptyList()
+
+        // Use batch fetching only for batch strategy, otherwise use individual fetching
+        return if (properties.teamNameStrategy == TeamNameStrategy.POJO_BATCH_WITH_CACHE) {
+            val teamIds = rows.map { it.teamId }
+            val teamNames = teamNameResolver.resolveTeamNames(teamIds)
+
+            rows.map { row ->
+                ResultTableRowResource(
+                    teamId = row.teamId.value,
+                    teamName = teamNames[row.teamId] ?: "Unknown",
+                    points = row.points,
+                    wins = row.wins,
+                    draws = row.draws,
+                    losses = row.losses,
+                    goalsScored = row.goalsScored,
+                    goalsConceded = row.goalsConceded
+                )
+            }
+        } else {
+            rows.map { toResultTableRowResource(it) }
+        }
     }
 }

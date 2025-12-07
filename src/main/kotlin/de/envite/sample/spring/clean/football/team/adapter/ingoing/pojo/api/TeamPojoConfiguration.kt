@@ -1,5 +1,6 @@
 package de.envite.sample.spring.clean.football.team.adapter.ingoing.pojo.api
 
+import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 
 /**
@@ -8,4 +9,5 @@ import org.springframework.context.annotation.Configuration
  * To enable caching, add @EnableCaching annotation and ensure the cache names are registered.
  */
 @Configuration
+@ComponentScan
 class TeamPojoConfiguration

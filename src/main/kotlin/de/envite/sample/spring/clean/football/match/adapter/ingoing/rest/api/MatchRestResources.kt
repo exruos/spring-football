@@ -10,6 +10,8 @@ data class MatchResource(
     val matchApiId: Int,
     val homeTeamId: Int,
     val awayTeamId: Int,
+    val homeTeamName: String,
+    val awayTeamName: String,
     val homeTeamGoal: Int?,
     val awayTeamGoal: Int?,
     val homePlayerLineup: PlayerLineupResource,
@@ -32,6 +34,7 @@ data class PlayerLineupResource(
 
 data class ResultTableRowResource(
     val teamId: Int,
+    val teamName: String,
     val points: Int,
     val wins: Int,
     val draws: Int,

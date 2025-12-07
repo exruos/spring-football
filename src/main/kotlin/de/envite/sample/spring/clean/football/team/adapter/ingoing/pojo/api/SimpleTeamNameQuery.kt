@@ -1,8 +1,7 @@
 package de.envite.sample.spring.clean.football.team.adapter.ingoing.pojo.api
 
-import de.envite.sample.spring.clean.football.team.domain.TeamId
-import de.envite.sample.spring.clean.football.team.domain.TeamName
-import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeam
+import de.envite.sample.spring.clean.football.team.domain.TeamApiId
+import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeamByApiId
 import org.springframework.stereotype.Component
 
 /**
@@ -11,9 +10,9 @@ import org.springframework.stereotype.Component
  */
 @Component
 class SimpleTeamNameQuery(
-    private val findTeam: FindTeam
+    private val findTeamByApiId: FindTeamByApiId
 ) : TeamNameQuery {
-    override fun getTeamName(teamId: TeamId): TeamName? {
-        return findTeam(teamId)?.name
+    override fun getTeamName(teamId: Int): String {
+        return findTeamByApiId(TeamApiId(teamId))?.name?.value ?: "Unknown"
     }
 }

@@ -9,6 +9,8 @@ services:
       DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
       THC_PATH: /actuator/health
       THC_PORT: 8088
+      MATCH_REST_TEAM_NAME_STRATEGY: POJO_WITH_CACHE
+      MATCH_REST_TEAM_SERVICE_BASE_URL: http://service:8088
     ports:
       - "8088:8088"
     depends_on:

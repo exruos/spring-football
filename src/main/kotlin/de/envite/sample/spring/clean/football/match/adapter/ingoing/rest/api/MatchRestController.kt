@@ -42,7 +42,7 @@ class MatchRestController(
         @RequestParam leagueName: String
     ): ResponseEntity<List<ResultTableRowResource>> {
         val resultTable = getResultTable(season, leagueName)
-        val resultTableResources = resultTable.map { entityToRestResourceMapper.toResultTableRowResource(it) }
+        val resultTableResources = entityToRestResourceMapper.toResultTableRowResources(resultTable)
         return ResponseEntity.ok().body(resultTableResources)
     }
 }

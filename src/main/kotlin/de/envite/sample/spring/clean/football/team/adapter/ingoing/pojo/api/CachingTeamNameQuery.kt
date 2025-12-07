@@ -1,8 +1,7 @@
 package de.envite.sample.spring.clean.football.team.adapter.ingoing.pojo.api
 
-import de.envite.sample.spring.clean.football.team.domain.TeamId
-import de.envite.sample.spring.clean.football.team.domain.TeamName
-import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeam
+import de.envite.sample.spring.clean.football.team.domain.TeamApiId
+import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeamByApiId
 import org.springframework.cache.annotation.CacheEvict
 import org.springframework.cache.annotation.Cacheable
 import org.springframework.stereotype.Component
@@ -14,12 +13,12 @@ import org.springframework.stereotype.Component
  */
 @Component
 class CachingTeamNameQuery(
-    private val findTeam: FindTeam
+    private val findTeamByApiId: FindTeamByApiId
 ) : TeamNameQuery {
 
     @Cacheable(value = ["teamNames"], key = "#teamId")
-    override fun getTeamName(teamId: TeamId): TeamName? {
-        return findTeam(teamId)?.name
+    override fun getTeamName(teamId: Int): String {
+        return findTeamByApiId(TeamApiId(teamId))?.name?.value ?: "Unknown"
     }
 
     /**
@@ -37,7 +36,7 @@ class CachingTeamNameQuery(
      */
     @CacheEvict(value = ["teamNames"], key = "#teamId")
     @Suppress("UnusedParameter")
-    fun evict(teamId: TeamId) {
+    fun evict(teamId: Int) {
         // Cache entry will be evicted by Spring
     }
 }
