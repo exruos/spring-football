@@ -1,5 +1,11 @@
 import http from "k6/http";
 import { check } from "k6";
+import { Trend, Counter, Rate } from "k6/metrics";
+
+// Custom Metrics
+const matchResultTableDuration = new Trend("match_result_table_duration");
+const matchResultTableCount = new Counter("match_result_table_count");
+const matchResultTableSuccess = new Rate("match_result_table_success");
 
 const seasons = [
   "2012/2013",
@@ -29,6 +35,14 @@ const leagues = [
 export const options = {
   discardResponseBodies: true,
 
+  // Thresholds
+  thresholds: {
+    'match_result_table_duration': ['p(95)<500', 'p(99)<1000'],
+    'match_result_table_success': ['rate>0.99'],
+    'http_req_duration': ['p(95)<500', 'p(99)<1000'],
+    'http_req_failed': ['rate<0.01'],
+  },
+
   // Constant load of 400 iterations per second for 60s
   // ~24k requests in total
   scenarios: {
@@ -54,6 +68,12 @@ export default function () {
       tags: { name: "match_result_table" },
     }
   );
+
+  // Record custom metrics
+  matchResultTableDuration.add(res.timings.duration);
+  matchResultTableCount.add(1);
+  matchResultTableSuccess.add(res.status === 200);
+
   check(res, {
     "status is 200": (r) => r.status === 200,
   });

@@ -1,8 +1,21 @@
 import grpc from "k6/net/grpc";
 import { check } from "k6";
+import { Trend, Counter, Rate } from "k6/metrics";
+
+// Custom Metrics
+const playerGrpcDuration = new Trend("player_grpc_duration");
+const playerGrpcCount = new Counter("player_grpc_count");
+const playerGrpcSuccess = new Rate("player_grpc_success");
 
 export const options = {
   discardResponseBodies: true,
+
+  // Thresholds
+  thresholds: {
+    'player_grpc_duration': ['p(95)<500', 'p(99)<1000'],
+    'player_grpc_success': ['rate>0.99'],
+    'grpc_req_duration': ['p(95)<500', 'p(99)<1000'],
+  },
 
   // Constant load of 400 iterations per second for 60s
   // ~24k requests in total
@@ -28,6 +41,7 @@ export default function () {
 
   const randomId = Math.floor(Math.random() * 11075) + 1;
 
+  const startTime = Date.now();
   const res = client.invoke(
     "Player/GetPlayerRecordById",
     {
@@ -37,9 +51,17 @@ export default function () {
       tags: { name: "GetPlayerRecordById" },
     }
   );
+  const duration = Date.now() - startTime;
+
+  // Record custom metrics
+  playerGrpcDuration.add(duration);
+  playerGrpcCount.add(1);
+  playerGrpcSuccess.add(res && res.status === grpc.StatusOK);
+
   check(res, {
     "status is OK": (r) => r && r.status === grpc.StatusOK,
   });
 
   client.close();
 }
+
