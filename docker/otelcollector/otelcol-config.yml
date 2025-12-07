@@ -1,0 +1,21 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "otel-col:4317"
+      http:
+        endpoint: "otel-col:4318"
+
+exporters:
+  prometheus:
+    endpoint: "otel-col:9464"
+
+processors:
+  batch:
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [prometheus]
