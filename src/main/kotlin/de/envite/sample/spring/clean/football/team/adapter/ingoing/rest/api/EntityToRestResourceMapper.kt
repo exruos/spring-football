@@ -27,7 +27,7 @@ class EntityToRestResourceMapper {
             name = entity.name.value,
             shortName = entity.shortName.value,
             apiId = entity.teamApiId.value,
-            fifaApiId = entity.teamFifaApiId.value
+            fifaApiId = entity.teamFifaApiId?.value
         )
     }
 

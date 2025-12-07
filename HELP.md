@@ -7,7 +7,7 @@ You can either run the application natively or with Docker/Podman.
 Native (only works if a PostgreSQL database is running locally with port 5439 opened):
 
 ```sh
-./gradlew bootRun
+  ./gradlew bootRun --args='--spring.profiles.active=local'
 ```
 
 Docker:

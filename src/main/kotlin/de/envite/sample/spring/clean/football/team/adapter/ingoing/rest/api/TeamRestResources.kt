@@ -12,7 +12,7 @@ data class TeamRecordResource(
 data class TeamResource(
     val id: Int,
     val apiId: Int,
-    val fifaApiId: Int,
+    val fifaApiId: Int?,
     val name: String,
     val shortName: String,
 )

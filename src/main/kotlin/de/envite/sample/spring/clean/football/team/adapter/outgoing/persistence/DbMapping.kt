@@ -23,7 +23,7 @@ import de.envite.sample.spring.clean.football.team.domain.findBy
 internal fun TeamDto.toTeam() =
     Team(
         teamId = TeamId(this.id),
-        teamFifaApiId = TeamFifaApiId(this.teamFifaApiId),
+        teamFifaApiId = this.teamFifaApiId?.let { TeamFifaApiId(it) },
         teamApiId = TeamApiId(this.teamApiId),
         name = TeamName(this.teamLongName),
         shortName = TeamShortName(this.teamShortName)

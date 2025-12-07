@@ -7,7 +7,7 @@ import org.springframework.data.relational.core.mapping.Table
 data class TeamDto(
     @Id val id: Int,
     val teamApiId: Int,
-    val teamFifaApiId: Int,
+    val teamFifaApiId: Int?,
     val teamLongName: String,
     val teamShortName: String,
 )
@@ -15,7 +15,7 @@ data class TeamDto(
 @Table("team_attributes")
 data class TeamAttributesDto(
     @Id val id: Int,
-    val teamFifaApiId: Int,
+    val teamFifaApiId: Int?,
     val teamApiId: Int,
     val date: String,
     val buildUpPlaySpeed: Int?,

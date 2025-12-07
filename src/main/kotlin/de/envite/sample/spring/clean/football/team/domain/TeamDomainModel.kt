@@ -5,7 +5,7 @@ data class Team(
     val name: TeamName,
     val shortName: TeamShortName,
     val teamApiId: TeamApiId,
-    val teamFifaApiId: TeamFifaApiId
+    val teamFifaApiId: TeamFifaApiId?
 )
 
 data class TeamRecord(

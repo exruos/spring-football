@@ -15,7 +15,9 @@ internal class FindTeamRecordInteractor(
     override fun invoke(teamId: TeamId): TeamRecord? {
         val team = readTeam(teamId)
         if (team != null) {
-            val teamAttributes = readTeamAttributes(team.teamFifaApiId, team.teamApiId)
+            val teamAttributes = team.teamFifaApiId?.let { fifaApiId ->
+                readTeamAttributes(fifaApiId, team.teamApiId)
+            } ?: emptyList()
             return TeamRecord(
                 team = team,
                 attributes = teamAttributes

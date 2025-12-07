@@ -27,7 +27,8 @@ internal class TeamCrudRepositoryTest(
     fun findTeamAttributes() {
         val team = teamCrudRepository.findById(1).get()
         assertThat(team).isNotNull
-        val teamAttributes = teamCrudRepository.getTeamAttributes(team.teamFifaApiId, team.teamApiId)
+        assertThat(team.teamFifaApiId).isNotNull
+        val teamAttributes = teamCrudRepository.getTeamAttributes(team.teamFifaApiId!!, team.teamApiId)
         assertThat(teamAttributes.size).isGreaterThan(0)
     }
 
