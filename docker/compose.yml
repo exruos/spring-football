@@ -11,6 +11,7 @@ services:
       THC_PORT: 8088
       MATCH_REST_TEAM_NAME_STRATEGY: POJO_WITH_CACHE
       MATCH_REST_TEAM_SERVICE_BASE_URL: http://service:8088
+      SPRING_FLYWAY_ENABLED: "false"
     ports:
       - "8088:8088"
     depends_on:

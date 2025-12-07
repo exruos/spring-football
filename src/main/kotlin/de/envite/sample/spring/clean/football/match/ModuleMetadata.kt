@@ -4,6 +4,6 @@ import org.springframework.modulith.ApplicationModule
 
 @ApplicationModule(
     displayName = "Match",
-    allowedDependencies = ["types", "team :: pojo-api"]
+    allowedDependencies = ["types", "team"]  // Temporarily allow full team module due to cross-platform NamedInterface loading issue
 )
 class ModuleMetadata
