@@ -22,7 +22,7 @@ connectors:
       - name: http.route
       - name: rpc.service
       - name: rpc.method
-    metrics_flush_interval: 5s
+    metrics_flush_interval: 1s
 
 service:
   pipelines:
