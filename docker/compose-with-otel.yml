@@ -23,7 +23,7 @@ services:
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-col:4317"
       OTEL_METRICS_EXPORTER: otlp
-      OTEL_TRACES_EXPORTER: none
+      OTEL_TRACES_EXPORTER: otlp
       OTEL_LOGS_EXPORTER: console
       OTEL_SERVICE_NAME: spring-clean-football-service
       OTEL_INSTRUMENTATION_RUNTIME_TELEMETRY_ENABLED: false # use Micrometer for JVM Telemetry

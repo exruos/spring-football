@@ -110,7 +110,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/clubs/{id}\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/teams/{id}\", job=\"spring-clean-football-service\"}[$__rate_interval]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -127,7 +127,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_gef{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -144,7 +144,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_pue{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -161,7 +161,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -178,7 +178,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -196,7 +196,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -279,7 +279,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -296,7 +296,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -313,7 +313,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -330,7 +330,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/clubs/{id}\", job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/teams/{id}\", job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": false,
@@ -369,7 +369,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -402,7 +402,7 @@
           "type": "math"
         }
       ],
-      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"club by id\"",
+      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"team by id\"",
       "type": "timeseries"
     },
     {
@@ -495,7 +495,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/clubs\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/teams/api-id/{apiId}\", job=\"spring-clean-football-service\"}[$__rate_interval]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -512,7 +512,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_gef{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -529,7 +529,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_pue{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -546,7 +546,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -563,7 +563,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -581,7 +581,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -664,7 +664,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -681,7 +681,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -698,7 +698,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -715,7 +715,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/clubs\", job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/teams/api-id/{apiId}\", job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": false,
@@ -754,7 +754,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -787,7 +787,7 @@
           "type": "math"
         }
       ],
-      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"club by name\"",
+      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"team by api id\"",
       "type": "timeseries"
     },
     {
@@ -880,7 +880,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/players/{id}\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/players/record/{id}\", job=\"spring-clean-football-service\"}[$__rate_interval]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -897,7 +897,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_gef{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -914,7 +914,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_pue{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -931,7 +931,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -948,7 +948,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -966,7 +966,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1049,7 +1049,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1066,7 +1066,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1083,7 +1083,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1100,7 +1100,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/players/{id}\", job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/players/record/{id}\", job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": false,
@@ -1139,7 +1139,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1172,7 +1172,7 @@
           "type": "math"
         }
       ],
-      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"players by id\"",
+      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"players record by id\"",
       "type": "timeseries"
     },
     {
@@ -1265,7 +1265,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/players\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/players/{id}\", job=\"spring-clean-football-service\"}[$__rate_interval]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1282,7 +1282,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_gef{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1299,7 +1299,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_pue{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1316,7 +1316,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1333,7 +1333,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1351,7 +1351,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1434,7 +1434,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1451,7 +1451,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1468,7 +1468,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1485,7 +1485,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/players\", job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/players/{id}\", job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": false,
@@ -1524,7 +1524,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -1557,7 +1557,7 @@
           "type": "math"
         }
       ],
-      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"players by section\"",
+      "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"player by id\"",
       "type": "timeseries"
     },
     {
@@ -1625,7 +1625,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 27
+        "y": 18
       },
       "id": 1,
       "options": {
@@ -1648,18 +1648,19 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=~\"/clubs|/clubs/{id}|/players|/players/{id}|/match/team/{teamApiId}|/match/result-table\"}[1m])",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=~\"/teams/{id}|/teams/api-id/{apiId}|/players/{id}|/players/record/{id}|/match/team/{teamId}|/match/result-table\"}[1m])) / sum(rate(http_server_request_duration_seconds_count{http_route=~\"/teams/{id}|/teams/api-id/{apiId}|/players/{id}|/players/record/{id}|/match/team/{teamId}|/match/result-table\"}[1m]))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "Avg CPU per request",
           "range": true,
           "refId": "A",
           "useBackend": false
         }
       ],
-      "title": "CPU Demand (ms) for the API Calls",
-      "type": "timeseries"
+      "title": "Average CPU Demand (ms) per API Call",
+      "type": "timeseries",
+      "description": "Average CPU milliseconds consumed per HTTP request across all monitored endpoints"
     },
     {
       "datasource": {
@@ -1726,7 +1727,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 27
+        "y": 18
       },
       "id": 5,
       "options": {
@@ -1827,7 +1828,7 @@
         "h": 8,
         "w": 12,
         "x": 0,
-        "y": 35
+        "y": 26
       },
       "id": 4,
       "options": {
@@ -1850,18 +1851,19 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "rate(io_retit_resource_demand_memory_bytes_total{http_route=~\"/clubs|/players|/clubs/{id}|/players/{id}|/match/team/{teamApiId}|/match/result-table\"}[1m])",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=~\"/teams/{id}|/teams/api-id/{apiId}|/players/{id}|/players/record/{id}|/match/team/{teamId}|/match/result-table\"}[1m])) / sum(rate(http_server_request_duration_seconds_count{http_route=~\"/teams/{id}|/teams/api-id/{apiId}|/players/{id}|/players/record/{id}|/match/team/{teamId}|/match/result-table\"}[1m]))",
           "fullMetaSearch": false,
           "includeNullMetadata": true,
           "instant": false,
-          "legendFormat": "__auto",
+          "legendFormat": "Avg Memory per request",
           "range": true,
           "refId": "A",
           "useBackend": false
         }
       ],
-      "title": "Memory Demand (bytes) for the API Calls",
-      "type": "timeseries"
+      "title": "Average Memory Demand (bytes) per API Call",
+      "type": "timeseries",
+      "description": "Average memory bytes consumed per HTTP request across all monitored endpoints"
     },
     {
       "datasource": {
@@ -1928,7 +1930,7 @@
         "h": 8,
         "w": 12,
         "x": 12,
-        "y": 35
+        "y": 26
       },
       "id": 6,
       "options": {
@@ -2115,7 +2117,7 @@
         "h": 9,
         "w": 12,
         "x": 0,
-        "y": 18
+        "y": 27
       },
       "id": 14,
       "options": {
@@ -2139,7 +2141,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/match/team/{teamApiId}\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/match/team/{teamId}\", job=\"spring-clean-football-service\"}[$__rate_interval]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2156,7 +2158,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_gef{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2173,7 +2175,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_pue{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2190,7 +2192,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2207,7 +2209,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2225,7 +2227,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2308,7 +2310,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2325,7 +2327,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2342,7 +2344,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2359,7 +2361,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/match/team/{teamApiId}\", job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/match/team/{teamId}\", job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": false,
@@ -2398,7 +2400,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2440,6 +2442,418 @@
         "type": "prometheus",
         "uid": "api-metrics"
       },
+      "description": "gRPC request rate by service and method",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "requests/sec",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 36
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "api-metrics"
+          },
+          "editorMode": "code",
+          "expr": "rate(rpc_server_duration_milliseconds_count{job=\"spring-clean-football-service\"}[5m])",
+          "legendFormat": "{{rpc_service}}/{{rpc_method}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "gRPC Request Rate",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "api-metrics"
+      },
+      "description": "gRPC request duration (p95 and p99)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "milliseconds",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 36
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "api-metrics"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.95, rate(rpc_server_duration_milliseconds_bucket{job=\"spring-clean-football-service\"}[5m]))",
+          "legendFormat": "p95: {{rpc_service}}/{{rpc_method}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "api-metrics"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.99, rate(rpc_server_duration_milliseconds_bucket{job=\"spring-clean-football-service\"}[5m]))",
+          "legendFormat": "p99: {{rpc_service}}/{{rpc_method}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "gRPC Request Duration (p95/p99)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "api-metrics"
+      },
+      "description": "HTTP request rate by route",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "requests/sec",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "reqps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 44
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "api-metrics"
+          },
+          "editorMode": "code",
+          "expr": "rate(http_server_request_duration_seconds_count{job=\"spring-clean-football-service\", http_route=~\".+\"}[1m])",
+          "legendFormat": "{{http_route}}",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "HTTP Request Rate",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "api-metrics"
+      },
+      "description": "HTTP request duration (p95 and p99)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "milliseconds",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 44
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [
+            "mean",
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "api-metrics"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.95, rate(http_server_request_duration_seconds_bucket{job=\"spring-clean-football-service\", http_route=~\".+\"}[1m])) * 1000",
+          "legendFormat": "p95: {{http_route}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "api-metrics"
+          },
+          "editorMode": "code",
+          "expr": "histogram_quantile(0.99, rate(http_server_request_duration_seconds_bucket{job=\"spring-clean-football-service\", http_route=~\".+\"}[1m])) * 1000",
+          "legendFormat": "p99: {{http_route}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "HTTP Request Duration (p95/p99)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "default": true,
+        "type": "prometheus",
+        "uid": "api-metrics"
+      },
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -2500,9 +2914,9 @@
         "h": 9,
         "w": 12,
         "x": 12,
-        "y": 18
+        "y": 27
       },
-      "id": 15,
+      "id": 19,
       "options": {
         "legend": {
           "calcs": [],
@@ -2524,7 +2938,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/match/result-table\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
+          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{http_route=\"/match/result-table\", job=\"spring-clean-football-service\"}[$__rate_interval]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2541,7 +2955,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_gef{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2558,7 +2972,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_pue{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2575,7 +2989,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2592,7 +3006,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2610,7 +3024,7 @@
           "disableTextWrap": false,
           "editorMode": "builder",
           "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2693,7 +3107,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2710,7 +3124,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2727,7 +3141,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2744,7 +3158,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/match/result-table\", job=\"spring-rest-football-modulith\"}[1m]))",
+          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{http_route=\"/match/result-table\", job=\"spring-clean-football-service\"}[1m]))",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": false,
@@ -2783,7 +3197,7 @@
           },
           "disableTextWrap": false,
           "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
+          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-clean-football-service\"})",
           "fullMetaSearch": false,
           "hide": true,
           "includeNullMetadata": true,
@@ -2817,776 +3231,6 @@
         }
       ],
       "title": "Software Carbon Intensity (SCI) in gCO2eq for API Endpoint \"match result table\"",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "default": true,
-        "type": "prometheus",
-        "uid": "api-metrics"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 0,
-        "y": 27
-      },
-      "id": 16,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{rpc_service=\"Player\", rpc_method=\"GetPlayerById\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "dcpuSum",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "GEF",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "PUE",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Pcpumin",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Pcpumax",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "processcpudemand",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$processcpudemand  / 60000",
-          "hide": true,
-          "refId": "CPUutil",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$dcpuSum / $processcpudemand",
-          "hide": true,
-          "refId": "CPUutilT",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$Pcpumin + ($CPUutil * ($Pcpumax-$Pcpumin))",
-          "hide": true,
-          "refId": "Pcpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$Pcpu * $CPUutilT",
-          "hide": true,
-          "refId": "Ptcpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "($Ptcpu * 60000) / 1000",
-          "hide": true,
-          "refId": "Ecpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$Ecpu * $GEF",
-          "hide": true,
-          "refId": "ccpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Esto",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Enet",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Emem",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{rpc_service=\"Player\", rpc_method=\"GetPlayerById\", job=\"spring-rest-football-modulith\"}[1m]))",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "dmem",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$dmem*0.000000001*$Emem*$GEF",
-          "hide": true,
-          "refId": "cmem",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$ccpu+$cmem",
-          "hide": true,
-          "refId": "ct",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "M",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$M * $CPUutilT",
-          "hide": true,
-          "refId": "Mt",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$ct+$Mt",
-          "hide": false,
-          "refId": "SCIt",
-          "type": "math"
-        }
-      ],
-      "title": "Software Carbon Intensity (SCI) in gCO2eq for gRPC Method \"Player/GetPlayerById\"",
-      "type": "timeseries"
-    },
-    {
-      "datasource": {
-        "default": true,
-        "type": "prometheus",
-        "uid": "api-metrics"
-      },
-      "description": "",
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "palette-classic"
-          },
-          "custom": {
-            "axisBorderShow": false,
-            "axisCenteredZero": false,
-            "axisColorMode": "text",
-            "axisLabel": "",
-            "axisPlacement": "auto",
-            "barAlignment": 0,
-            "barWidthFactor": 0.6,
-            "drawStyle": "line",
-            "fillOpacity": 0,
-            "gradientMode": "none",
-            "hideFrom": {
-              "legend": false,
-              "tooltip": false,
-              "viz": false
-            },
-            "insertNulls": false,
-            "lineInterpolation": "linear",
-            "lineWidth": 1,
-            "pointSize": 5,
-            "scaleDistribution": {
-              "type": "linear"
-            },
-            "showPoints": "auto",
-            "spanNulls": false,
-            "stacking": {
-              "group": "A",
-              "mode": "none"
-            },
-            "thresholdsStyle": {
-              "mode": "off"
-            }
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          }
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 9,
-        "w": 12,
-        "x": 12,
-        "y": 27
-      },
-      "id": 17,
-      "options": {
-        "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom",
-          "showLegend": true
-        },
-        "tooltip": {
-          "mode": "single",
-          "sort": "none"
-        }
-      },
-      "targets": [
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "sum(rate(io_retit_resource_demand_cpu_ms_milliseconds_total{rpc_service=\"Player\", rpc_method=\"GetPlayerRecordById\", job=\"spring-rest-football-modulith\"}[$__rate_interval]))",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "dcpuSum",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_gef{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "GEF",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_pue{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "PUE",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_min{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Pcpumin",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_cpu_power_max{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Pcpumax",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "exemplar": false,
-          "expr": "sum(rate(io_retit_emissions_java_process_cpu_time_total{job=\"spring-rest-football-modulith\"}[1m]))",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "processcpudemand",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$processcpudemand  / 60000",
-          "hide": true,
-          "refId": "CPUutil",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$dcpuSum / $processcpudemand",
-          "hide": true,
-          "refId": "CPUutilT",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$Pcpumin + ($CPUutil * ($Pcpumax-$Pcpumin))",
-          "hide": true,
-          "refId": "Pcpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$Pcpu * $CPUutilT",
-          "hide": true,
-          "refId": "Ptcpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "($Ptcpu * 60000) / 1000",
-          "hide": true,
-          "refId": "Ecpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$Ecpu * $GEF",
-          "hide": true,
-          "refId": "ccpu",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_storage_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Esto",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_network_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Enet",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_memory_energy_gb_minute{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "Emem",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "sum(rate(io_retit_resource_demand_memory_bytes_total{rpc_service=\"Player\", rpc_method=\"GetPlayerRecordById\", job=\"spring-rest-football-modulith\"}[1m]))",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": false,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "dmem",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$dmem*0.000000001*$Emem*$GEF",
-          "hide": true,
-          "refId": "cmem",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$ccpu+$cmem",
-          "hide": true,
-          "refId": "ct",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "api-metrics"
-          },
-          "disableTextWrap": false,
-          "editorMode": "builder",
-          "expr": "max(io_retit_emissions_embodied_emissions_minute_mg{job=\"spring-rest-football-modulith\"})",
-          "fullMetaSearch": false,
-          "hide": true,
-          "includeNullMetadata": true,
-          "instant": false,
-          "legendFormat": "__auto",
-          "range": true,
-          "refId": "M",
-          "useBackend": false
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$M * $CPUutilT",
-          "hide": true,
-          "refId": "Mt",
-          "type": "math"
-        },
-        {
-          "datasource": {
-            "name": "Expression",
-            "type": "__expr__",
-            "uid": "__expr__"
-          },
-          "expression": "$ct+$Mt",
-          "hide": false,
-          "refId": "SCIt",
-          "type": "math"
-        }
-      ],
-      "title": "Software Carbon Intensity (SCI) in gCO2eq for gRPC Method \"Player/GetPlayerRecordById\"",
       "type": "timeseries"
     }
   ],
