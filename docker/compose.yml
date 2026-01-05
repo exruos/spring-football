@@ -4,9 +4,10 @@ services:
 
   service:
     container_name: spring-clean-football-service
+    platform: linux/amd64
     image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT
     environment:
-      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
       THC_PATH: /actuator/health
       THC_PORT: 8088
       MATCH_REST_TEAM_NAME_STRATEGY: POJO_WITH_CACHE
@@ -26,7 +27,7 @@ services:
 
   db:
     container_name: postgres-db-clean-service
-    # image: postgres:18.1
+    platform: linux/amd64
     image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.7 # use pre-built image with data to save time at startup
     restart: always
     shm_size: 128mb
