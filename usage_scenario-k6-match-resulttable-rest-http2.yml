@@ -44,6 +44,6 @@ flow:
     container: k6
     commands:
       - type: console
-        command: k6 run /tmp/repo/client/match_result_table_http_gmt_load.js --quiet
+        command: k6 run /tmp/repo/client/k6_match_result_table_http_gmt_load.js --quiet
         log-stdout: true # only summary is logged
         log-stderr: true
