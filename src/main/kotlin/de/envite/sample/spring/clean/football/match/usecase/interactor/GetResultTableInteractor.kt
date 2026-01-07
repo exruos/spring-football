@@ -3,16 +3,16 @@ package de.envite.sample.spring.clean.football.match.usecase.interactor
 import de.envite.sample.spring.clean.football.match.domain.ResultTableRow
 import de.envite.sample.spring.clean.football.match.domain.TeamId
 import de.envite.sample.spring.clean.football.match.usecase.ingoing.GetResultTable
-import de.envite.sample.spring.clean.football.match.usecase.outgoing.ReadMatchesBySeasonAndLeague
+import de.envite.sample.spring.clean.football.match.usecase.outgoing.ReadMatchesForResultTable
 import org.springframework.stereotype.Component
 
 @Component
 internal class GetResultTableInteractor(
-    private val readMatchesBySeasonAndLeague: ReadMatchesBySeasonAndLeague
+    private val readMatchesForResultTable: ReadMatchesForResultTable
 ) : GetResultTable {
 
     override fun invoke(season: String, leagueName: String): List<ResultTableRow> {
-        val matches = readMatchesBySeasonAndLeague(season, leagueName)
+        val matches = readMatchesForResultTable(season, leagueName)
 
         // Group statistics by team
         val teamStats = mutableMapOf<TeamId, TeamStatistics>()
