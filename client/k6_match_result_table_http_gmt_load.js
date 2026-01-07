@@ -48,8 +48,8 @@ export const options = {
   scenarios: {
     match_result_table: {
       executor: "shared-iterations",
-      vus: 60,
-      iterations: 6000,
+      vus: 10,
+      iterations: 10000,
       maxDuration: "5m",
     },
   },

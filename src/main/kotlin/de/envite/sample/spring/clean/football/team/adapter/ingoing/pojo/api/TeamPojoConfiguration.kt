@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Configuration
 
 /**
  * Configuration for the team POJO adapter.
- * Note: Caching has been disabled for now to avoid conflicts.
- * To enable caching, add @EnableCaching annotation and ensure the cache names are registered.
+ * Caching is configured in CacheConfiguration.
  */
 @Configuration
 @ComponentScan
