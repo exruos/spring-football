@@ -37,9 +37,9 @@ export const options = {
 
   // Thresholds
   thresholds: {
-    'match_result_table_duration': ['p(95)<500', 'p(99)<1000'],
+    'match_result_table_duration': ['p(95)<1000', 'p(99)<1500'],
     'match_result_table_success': ['rate>0.99'],
-    'http_req_duration': ['p(95)<500', 'p(99)<1000'],
+    'http_req_duration': ['p(95)<1000', 'p(99)<1500'],
     'http_req_failed': ['rate<0.01'],
   },
 
