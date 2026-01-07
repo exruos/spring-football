@@ -36,30 +36,12 @@ curl localhost:8088/players/1
 curl localhost:8088/players/record/1
 ```
 
-### Load testing with Artillery
+### Load testing with k6
 
-A load test can be run by [Artillery](https://www.artillery.io/) using
-
-```sh
-artillery run client/artillery_test.yml
-```
-
-or when a report should be generated
+A load test can be run by [k6](https://k6.io//) using
 
 ```sh
-artillery run --output report.json client/artillery_test.yml
-```
-
-A html report can be generated using the command
-
-```sh
-artillery report report.json
-```
-
-If you want to specify a different target, you can use the argument `--target` or `-t`:
-
-```sh
-artillery run client/artillery_test.yml -t $service_URL
+k6 run -e TARGET_HOSTNAME=localhost -e TARGET_PORT=8088 ./k6_match_http_gmt_load.js
 ```
 
 ## Build
