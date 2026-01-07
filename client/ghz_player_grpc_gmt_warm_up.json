@@ -1,5 +1,5 @@
 {
-  "proto": "../src/main/proto/player.proto",
+  "proto": "/tmp/repo/src/main/proto/player.proto",
   "call": "Player/GetPlayerRecordById",
   "total": 1830,
   "concurrency": 60,
@@ -17,7 +17,7 @@
     "timestamp": "{{.TimestampUnix}}"
   },
   "import-paths": [
-    "../src/main/proto"
+    "/tmp/repo/src/main/proto"
   ],
   "host": "service:8088",
   "skipTLS": true,
