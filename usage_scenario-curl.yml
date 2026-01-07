@@ -2,6 +2,7 @@
 name: Spring Football service Clean - REST (curl)
 author: David Kopp
 description: Executes individual API requests using curl
+ignore-unsupported-compose: true
 
 compose-file: !include docker/compose.yml
 
