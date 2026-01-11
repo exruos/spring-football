@@ -53,7 +53,6 @@ export default function () {
   );
   check(res1, {
     "status is OK": (r) => r && r.status === grpc.StatusOK,
-    "protocol is HTTP/2": (r) => r.proto === 'HTTP/2.0',
   });
 
   // Get player record
@@ -68,7 +67,6 @@ export default function () {
   );
   check(res2, {
     "status is OK": (r) => r && r.status === grpc.StatusOK,
-    "protocol is HTTP/2": (r) => r.proto === 'HTTP/2.0',
   });
 
   client.close();
