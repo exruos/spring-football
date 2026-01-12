@@ -37,13 +37,13 @@ flow:
     container: k6
     commands:
       - type: console
-        command: k6 run /tmp/repo/client/k6_player_https_gmt_warm_up.js --quiet
+        command: k6 run /tmp/repo/client/k6_player_https_gmt_warm_up.js --quiet --insecure-skip-tls-verify
         log-stdout: true # only summary is logged
         log-stderr: true
   - name: Constant Load
     container: k6
     commands:
       - type: console
-        command: k6 run /tmp/repo/client/k6_player_https_gmt_load.js --quiet
+        command: k6 run /tmp/repo/client/k6_player_https_gmt_load.js --quiet --insecure-skip-tls-verify
         log-stdout: true # only summary is logged
         log-stderr: true
