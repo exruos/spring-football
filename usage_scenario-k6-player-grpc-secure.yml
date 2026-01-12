@@ -29,7 +29,7 @@ services:
     command: sleep infinity # wait for commands in the flow
     environment:
       TARGET_HOSTNAME: "service"
-      TARGET_PORT: "8433"
+      TARGET_PORT: "8443"
 
 flow:
   - name: Warm Up
