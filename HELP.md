@@ -1,5 +1,10 @@
 # Help
 
+## Creating the keystore for ssl enabled calls
+```sh
+keytool -genkeypair -alias envite -keyalg RSA -keysize 4096 -storetype PKCS12 -keystore envite.p12 -validity 3650
+```
+
 ## Quick start
 
 You can either run the application natively or with Docker/Podman.
