@@ -49,6 +49,8 @@ A load test can be run by [k6](https://k6.io//) using
 k6 run -e TARGET_HOSTNAME=localhost -e TARGET_PORT=8088 ./k6_match_http_gmt_load.js
 ```
 
+In case, a test is started using TLS the cli option ```--insecure-skip-tls-verify``` has to be used.
+
 ## Build
 
 Build jar file:
