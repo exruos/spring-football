@@ -19,7 +19,7 @@ spring:
       jks:
         server:
           key:
-            alias: "server"
+            alias: "envite"
           keystore:
             location: "classpath:keystore/envite.p12"
             password: "envite"
