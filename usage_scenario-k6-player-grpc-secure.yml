@@ -4,7 +4,7 @@ author: David Kopp
 description: Executes a gRPC load test scenario using K6. There are two phases, warm up and constant load. An open workload scenario is used with a peak of 400 requests per second.
 ignore-unsupported-compose: true
 
-compose-file: !include docker/compose_secure.yml
+compose-file: !include docker/compose.yml
 
 services:
 
