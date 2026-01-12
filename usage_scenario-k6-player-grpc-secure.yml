@@ -16,8 +16,6 @@ services:
       SPRING_PROFILES_ACTIVE: "secure"
       SPRING_THREADS_VIRTUAL_ENABLED: true
       SERVER_HTTP2_ENABLED: true # HTTP/2 is required for gRPC
-      BP_HEALTH_CHECKER_ENABLED: false
-
   db:
     container_name: database
 
@@ -26,7 +24,7 @@ services:
     image: grafana/k6:1.4.2
     depends_on:
       service:
-        condition: service_healthy # wait until the service is ready before starting with the flow
+        condition: service_started # wait until the service is ready before starting with the flow
     entrypoint: "" # ignore default entrypoint
     command: sleep infinity # wait for commands in the flow
     environment:
