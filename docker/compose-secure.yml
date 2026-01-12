@@ -15,7 +15,7 @@ services:
       MATCH_REST_TEAM_SERVICE_BASE_URL: http://service:8088
       SPRING_FLYWAY_ENABLED: "false"
     ports:
-      - "8088:8088"
+      - "8443:8443"
     depends_on:
       db:
         condition: service_healthy
