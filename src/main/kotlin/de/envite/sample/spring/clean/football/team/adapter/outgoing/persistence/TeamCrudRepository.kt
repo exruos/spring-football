@@ -26,4 +26,13 @@ interface TeamCrudRepository : CrudRepository<TeamDto, Int> {
 			"""
     )
     fun findByTeamApiId(@Param("team_api_id") apiId: Int): TeamDto?
+
+    @Query(
+        """
+			SELECT *
+		    FROM team
+			WHERE team_api_id IN (:team_api_ids)
+			"""
+    )
+    fun findByTeamApiIdIn(@Param("team_api_ids") apiIds: List<Int>): List<TeamDto>
 }
