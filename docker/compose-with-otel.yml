@@ -19,7 +19,12 @@ services:
       MATCH_REST_TEAM_NAME_STRATEGY: POJO_WITH_CACHE
       MATCH_REST_TEAM_SERVICE_BASE_URL: http://service:8088
       SPRING_FLYWAY_ENABLED: "false"
-      JAVA_TOOL_OPTIONS: -javaagent:/workspace/opentelemetry-javaagent.jar -Dotel.javaagent.extensions=/workspace/io.retit.opentelemetry.javaagent.extension.jar
+      JAVA_TOOL_OPTIONS: >-
+        -javaagent:/workspace/opentelemetry-javaagent.jar
+        -Dotel.javaagent.extensions=/workspace/io.retit.opentelemetry.javaagent.extension.jar
+        -Djavax.net.ssl.sessionCacheSize=10000
+        -Djdk.tls.client.enableSessionTicketExtension=true
+        -Djdk.tls.server.enableSessionTicketExtension=true
       OTEL_EXPORTER_OTLP_PROTOCOL: grpc
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-col:4317"
       OTEL_METRICS_EXPORTER: otlp

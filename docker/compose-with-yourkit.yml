@@ -7,7 +7,11 @@ services:
     platform: linux/amd64
     image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT
     environment:
-      JAVA_TOOL_OPTIONS: -agentpath:/workspace/libyjpagent.so=port=10001,listen=all
+      JAVA_TOOL_OPTIONS: >-
+        -agentpath:/workspace/libyjpagent.so=port=10001,listen=all
+        -Djavax.net.ssl.sessionCacheSize=10000
+        -Djdk.tls.client.enableSessionTicketExtension=true
+        -Djdk.tls.server.enableSessionTicketExtension=true
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
       THC_PATH: /actuator/health
       THC_PORT: 8088

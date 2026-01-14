@@ -30,12 +30,20 @@ spring:
 server:
   tomcat:
     max-keep-alive-requests: -1
+    keep-alive-timeout: 60000  # 60 seconds - keep connections alive longer
+    connection-timeout: 20000  # 20 seconds connection timeout
+    threads:
+      max: 200  # Ensure enough threads for concurrent TLS connections
   http2:
     enabled: true # required for gRPC
   port: 8443
   ssl:
     bundle: "server"
     enabled-protocols: "TLSv1.3"
+  # Enable session caching for TLS session resumption
+  session:
+    cache-size: 10000  # Cache up to 10000 TLS sessions
+    timeout: 300s  # Keep sessions cached for 5 minutes
 
 logging:
   level:

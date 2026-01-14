@@ -20,10 +20,17 @@ export const options = {
 const client = new grpc.Client();
 client.load(["../src/main/proto"], "player.proto");
 
+// Track connection state per VU to avoid reconnecting on every iteration
+let isConnected = false;
+
 export default function () {
-  const hostname = `${__ENV.TARGET_HOSTNAME}`;
-  const port = `${__ENV.TARGET_PORT}`;
-  client.connect(`${hostname}:${port}`);
+  // Connect once per VU, reuse connection across all iterations
+  if (!isConnected) {
+    const hostname = `${__ENV.TARGET_HOSTNAME}`;
+    const port = `${__ENV.TARGET_PORT}`;
+    client.connect(`${hostname}:${port}`);
+    isConnected = true;
+  }
 
   const randomId = Math.floor(Math.random() * 11075) + 1;
 
@@ -40,5 +47,5 @@ export default function () {
     "status is OK": (r) => r && r.status === grpc.StatusOK,
   });
 
-  client.close();
+  // Keep connection open for reuse - no close() call
 }
