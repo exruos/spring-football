@@ -1,0 +1,28 @@
+package de.envite.sample.spring.clean.football.team.usecase.interactor
+
+import de.envite.sample.spring.clean.football.team.domain.TeamId
+import de.envite.sample.spring.clean.football.team.domain.TeamRecord
+import de.envite.sample.spring.clean.football.team.usecase.outgoing.ReadTeam
+import de.envite.sample.spring.clean.football.team.usecase.outgoing.ReadTeamAttributes
+import org.springframework.stereotype.Component
+import de.envite.sample.spring.clean.football.team.usecase.ingoing.FindTeamRecord as FindTeamRecordApi
+
+@Component
+internal class FindTeamRecordInteractor(
+    private val readTeam: ReadTeam,
+    private val readTeamAttributes: ReadTeamAttributes
+) : FindTeamRecordApi {
+    override fun invoke(teamId: TeamId): TeamRecord? {
+        val team = readTeam(teamId)
+        if (team != null) {
+            val teamAttributes = team.teamFifaApiId?.let { fifaApiId ->
+                readTeamAttributes(fifaApiId, team.teamApiId)
+            } ?: emptyList()
+            return TeamRecord(
+                team = team,
+                attributes = teamAttributes
+            )
+        }
+        return null
+    }
+}

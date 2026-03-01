@@ -1,0 +1,25 @@
+{
+  "proto": "/tmp/repo/src/main/proto/player.proto",
+  "call": "Player/GetPlayerRecordById",
+  "total": 1830,
+  "concurrency": 60,
+  "load-schedule": "step",
+  "load-start": 1,
+  "load-end": 60,
+  "load-step": 1,
+  "load-step-duration": "1s",
+  "max-duration": "60s",
+  "data": {
+    "id": "{{ randomInt 1 11075 }}"
+  },
+  "metadata": {
+    "trace_id": "{{.RequestNumber}}",
+    "timestamp": "{{.TimestampUnix}}"
+  },
+  "import-paths": [
+    "/tmp/repo/src/main/proto"
+  ],
+  "host": "service:8088",
+  "skipTLS": true,
+  "insecure": true
+}

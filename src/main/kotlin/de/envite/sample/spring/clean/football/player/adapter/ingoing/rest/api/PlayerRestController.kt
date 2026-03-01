@@ -16,7 +16,7 @@ class PlayerRestController(
     private val entityToRestResourceMapper: EntityToRestResourceMapper
 ) {
     @RequestMapping("/players/{id}", method = [GET])
-    fun getPlayerById(@PathVariable id: String): ResponseEntity<PlayerResource?> {
+    fun getPlayerById(@PathVariable id: String): ResponseEntity<PlayerResource> {
         val player = findPlayer(PlayerId.fromString(id))
         return if (player == null) {
             ResponseEntity.notFound().build()

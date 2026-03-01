@@ -4,7 +4,9 @@ import de.envite.sample.spring.clean.football.player.domain.PlayerApiId
 import de.envite.sample.spring.clean.football.player.domain.PlayerAttributes
 import de.envite.sample.spring.clean.football.player.domain.PlayerFifaApiId
 import de.envite.sample.spring.clean.football.player.usecase.outgoing.ReadPlayerAttributes
+import org.springframework.stereotype.Component
 
+@Component
 class PlayerAttributesRepository(
     val playerCrudRepository: PlayerCrudRepository
 ) : ReadPlayerAttributes {

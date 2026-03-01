@@ -2,6 +2,7 @@
 name: Spring Football service Clean - REST (curl)
 author: David Kopp
 description: Executes individual API requests using curl
+ignore-unsupported-compose: true
 
 compose-file: !include docker/compose.yml
 
@@ -11,7 +12,7 @@ services:
   service:
     container_name: service
     environment:
-      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
       SERVER_HTTP2_ENABLED: false
 
   db:

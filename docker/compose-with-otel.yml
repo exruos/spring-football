@@ -1,0 +1,136 @@
+name: spring-clean-football-service-with-otel
+
+# Configure Docker log driver to enable automatic log-rotation
+x-default-logging: &logging
+  driver: "json-file"
+  options:
+    max-size: "5m"
+    max-file: "2"
+
+services:
+
+  service:
+    container_name: spring-clean-football-service
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT
+    environment:
+      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
+      THC_PATH: /actuator/health
+      THC_PORT: 8088
+      MATCH_REST_TEAM_NAME_STRATEGY: POJO_WITH_CACHE
+      MATCH_REST_TEAM_SERVICE_BASE_URL: http://service:8088
+      SPRING_FLYWAY_ENABLED: "false"
+      JAVA_TOOL_OPTIONS: >-
+        -javaagent:/workspace/opentelemetry-javaagent.jar
+        -Dotel.javaagent.extensions=/workspace/io.retit.opentelemetry.javaagent.extension.jar
+        -Djavax.net.ssl.sessionCacheSize=10000
+        -Djdk.tls.client.enableSessionTicketExtension=true
+        -Djdk.tls.server.enableSessionTicketExtension=true
+      OTEL_EXPORTER_OTLP_PROTOCOL: grpc
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://otel-col:4317"
+      OTEL_METRICS_EXPORTER: otlp
+      OTEL_TRACES_EXPORTER: otlp
+      OTEL_LOGS_EXPORTER: console
+      OTEL_SERVICE_NAME: spring-clean-football-service
+      OTEL_INSTRUMENTATION_RUNTIME_TELEMETRY_ENABLED: false # use Micrometer for JVM Telemetry
+      MANAGEMENT_OTLP_METRICS_EXPORT_URL: "http://otel-col:4318/v1/metrics"
+      IO_RETIT_LOG_CPU_DEMAND: true
+      IO_RETIT_LOG_HEAP_DEMAND: true
+      IO_RETIT_LOG_DISK_DEMAND: false # works only on Linux-based systems with a Kernel version higher than 3.14
+      IO_RETIT_LOG_NETWORK_DEMAND: false # works only on Linux-based systems with a Kernel version higher than 3.14
+      IO_RETIT_EMISSIONS_CLOUD_PROVIDER: AWS
+      IO_RETIT_EMISSIONS_CLOUD_PROVIDER_REGION: eu-central-1
+      IO_RETIT_EMISSIONS_CLOUD_PROVIDER_INSTANCE_TYPE: t3.large
+    volumes:
+      - "./opentelemetry-javaagent.jar:/workspace/opentelemetry-javaagent.jar"
+      - "./io.retit.opentelemetry.javaagent.extension.jar:/workspace/io.retit.opentelemetry.javaagent.extension.jar"
+    ports:
+      - "8088:8088"
+    depends_on:
+      - db
+      - collector
+    networks:
+      - spring-modulith
+    logging: *logging
+    healthcheck:
+      test: "/workspace/health-check"
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+
+  db:
+    container_name: postgres-db-clean-service
+    # image: postgres:18.1
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.7 # use pre-built image with data to save time at startup
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5438:5438"
+    command: -p 5438
+    healthcheck:
+      test: "pg_isready -p 5438 -U postgres"
+      start_period: "30s"
+      start_interval: "1s"
+      interval: "24h" # only the start is relevant for us
+    networks:
+      - spring-modulith
+    logging: *logging
+
+  # Grafana
+  grafana:
+    image: grafana/grafana:12.3
+    container_name: grafana
+    volumes:
+      - ./grafana/grafana.ini:/etc/grafana/grafana.ini
+      - ./grafana/provisioning/datasources/:/etc/grafana/provisioning/datasources/
+      - ./grafana/provisioning/dashboards/:/etc/grafana/provisioning/dashboards/
+    ports:
+      - "3000:3000"
+    networks:
+      - spring-modulith
+    logging: *logging
+
+  # OpenTelemetry Collector
+  collector:
+    container_name: otel-col
+    image: otel/opentelemetry-collector-contrib:0.141.0
+    restart: unless-stopped
+    command: [ "--config=/etc/otelcol-config.yml" ]
+    volumes:
+      - ./otelcollector/otelcol-config.yml:/etc/otelcol-config.yml
+    ports:
+      - "4317:4317"          # OTLP over gRPC receiver
+      - "4318:4318"          # OTLP over HTTP receiver
+      - "9464:9464"          # Prometheus exporter
+      - "8888:8888"          # metrics endpoint
+    networks:
+      - spring-modulith
+    logging: *logging
+
+  # Prometheus
+  prometheus:
+    image: quay.io/prometheus/prometheus:v3.8.0
+    container_name: prometheus
+    command:
+      - --web.console.templates=/etc/prometheus/consoles
+      - --web.console.libraries=/etc/prometheus/console_libraries
+      - --storage.tsdb.retention.time=1h
+      - --config.file=/etc/prometheus/prometheus-config.yaml
+      - --storage.tsdb.path=/prometheus
+      - --web.enable-lifecycle
+      - --web.route-prefix=/
+      - --enable-feature=exemplar-storage
+    volumes:
+      - ./prometheus/prometheus-config.yaml:/etc/prometheus/prometheus-config.yaml
+    ports:
+      - "9090:9090"
+    networks:
+      - spring-modulith
+    logging: *logging
+
+networks:
+  spring-modulith:
+    name: spring-modulith
+    driver: bridge

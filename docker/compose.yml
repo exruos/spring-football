@@ -4,13 +4,23 @@ services:
 
   service:
     container_name: spring-clean-football-service
+    platform: linux/amd64
     image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/spring-clean-football-service:0.0.1-SNAPSHOT
     environment:
-      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres-db-clean-service:5438/postgres
       THC_PATH: /actuator/health
       THC_PORT: 8088
+      MATCH_REST_TEAM_NAME_STRATEGY: POJO_WITH_CACHE
+      MATCH_REST_TEAM_SERVICE_BASE_URL: http://service:8088
+      SPRING_FLYWAY_ENABLED: "false"
+      # JVM TLS 1.3 optimizations for session caching and resumption
+      JAVA_TOOL_OPTIONS: >-
+        -Djavax.net.ssl.sessionCacheSize=10000
+        -Djdk.tls.client.enableSessionTicketExtension=true
+        -Djdk.tls.server.enableSessionTicketExtension=true
     ports:
       - "8088:8088"
+      - "8443:8443"
     depends_on:
       db:
         condition: service_healthy
@@ -23,8 +33,8 @@ services:
 
   db:
     container_name: postgres-db-clean-service
-    # image: postgres:17.5
-    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.5 # use pre-built image with data to save time at startup
+    platform: linux/amd64
+    image: registry.gitlab.com/envite-consulting/sustainable-software-architecture/football-databases:postgres-17.7 # use pre-built image with data to save time at startup
     restart: always
     shm_size: 128mb
     environment:

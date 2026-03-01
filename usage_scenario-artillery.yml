@@ -2,6 +2,7 @@
 name: Spring Football service Clean - REST (Artillery)
 author: David Kopp
 description: Executes a HTTP load test scenario using Artillery. There are two phases, warm up and constant load.
+ignore-unsupported-compose: true
 
 compose-file: !include docker/compose.yml
 
@@ -11,7 +12,7 @@ services:
   service:
     container_name: service
     environment:
-      DATASOURCES_FOOTBALL_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5438/postgres
       SERVER_HTTP2_ENABLED: false
 
   db:

@@ -1,5 +1,6 @@
 package de.envite.sample.spring.clean.football.player.adapter.ingoing.grpc.api
 
+import de.envite.sample.spring.clean.football.TestcontainersConfiguration
 import de.envite.sample.spring.clean.football.proto.PlayerGrpc
 import de.envite.sample.spring.clean.football.proto.PlayerIdRequest
 import org.assertj.core.api.Assertions.assertThat
@@ -16,9 +17,9 @@ import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.TestConstructor
 import org.springframework.test.context.TestConstructor.AutowireMode.ALL
-import org.testcontainers.junit.jupiter.Testcontainers
 
 @TestConfiguration
+@Import(TestcontainersConfiguration::class)
 class ExtraConfiguration {
     @Bean
     @Lazy
@@ -30,7 +31,6 @@ class ExtraConfiguration {
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @Import(ExtraConfiguration::class)
 @ActiveProfiles("test")
-@Testcontainers
 @TestConstructor(autowireMode = ALL)
 class PlayerGrpcControllerTest(
     private val stub: PlayerGrpc.PlayerBlockingStub

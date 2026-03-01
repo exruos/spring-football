@@ -3,8 +3,10 @@ package de.envite.sample.spring.clean.football.player.adapter.outgoing.persisten
 import de.envite.sample.spring.clean.football.player.domain.Player
 import de.envite.sample.spring.clean.football.player.domain.PlayerId
 import de.envite.sample.spring.clean.football.player.usecase.outgoing.ReadPlayer
+import org.springframework.stereotype.Component
 import kotlin.jvm.optionals.getOrNull
 
+@Component
 class PlayerRepository(
     val playerCrudRepository: PlayerCrudRepository
 ) : ReadPlayer {

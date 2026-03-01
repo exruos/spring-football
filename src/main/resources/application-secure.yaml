@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: "spring-rest-clean-football-service"
+  datasource:
+    url: jdbc:postgresql://postgres-db-clean-service:5438/postgres
+    username: postgres
+    password: postgres
+    hikari:
+      max-lifetime: 600000
+      maximum-pool-size: 90 # default: 10
+  flyway:
+    locations: classpath:db/migration
+  data:
+    jdbc:
+      repositories:
+        enabled: true
+  ssl:
+    bundle:
+      jks:
+        server:
+          key:
+            alias: "envite"
+          keystore:
+            location: "classpath:keystore/envite.p12"
+            password: "envite"
+            type: "PKCS12"
+  threads:
+    virtual:
+      enabled: false
+server:
+  tomcat:
+    max-keep-alive-requests: -1
+    keep-alive-timeout: 60000  # 60 seconds - keep connections alive longer
+    connection-timeout: 20000  # 20 seconds connection timeout
+    threads:
+      max: 200  # Ensure enough threads for concurrent TLS connections
+  http2:
+    enabled: true # required for gRPC
+  port: 8443
+  ssl:
+    bundle: "server"
+    enabled-protocols: "TLSv1.3"
+  # Enable session caching for TLS session resumption
+  session:
+    cache-size: 10000  # Cache up to 10000 TLS sessions
+    timeout: 300s  # Keep sessions cached for 5 minutes
+
+logging:
+  level:
+    org.springframework: info
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-components: always
+      show-details: always

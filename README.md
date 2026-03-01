@@ -62,25 +62,26 @@ grpcurl -d '{"id":1}' -plaintext localhost:8088 Player.GetPlayerRecordById
 ```
 
 Um die Ressourceneffizienz besser testen zu können, nutzen wir ein Lasttest-Tool.
-Es sind Lastszenarien für [Artillery](https://www.artillery.io/) und [K6](https://k6.io/) vorbereitet, siehe [./client/](./client/).
-
-Ausführung eines Lasttest-Szenarios mit Artillery:
-
-```sh
-artillery run client/artillery_test.yml
-```
+Es sind Lastszenarien für [K6](https://k6.io/) [ghz](https://ghz.sh/) und vorbereitet, siehe [./client/](./client/).
 
 Ausführung eines Lasttest-Szenarios für mit K6 für REST:
 
 ```sh
-k6 run client/k6_http_test.js
+k6 run client/k6_player_http_test.js
 ```
 
 Ausführung eines Lasttest-Szenarios mit K6 für gRPC:
 
 ```sh
-k6 run client/k6_grpc_test.js
+k6 run client/k6_player_grpc_test.js
 ```
+
+Ausführung eines Lasttest-Szenarios mit ghz für gRPC:
+
+```sh
+ghz ghz --config client/ghz_player_grpc_gmt_warm_up.json
+```
+
 
 ## Energiemessung mit dem Green Metrics Tool
 
