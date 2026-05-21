@@ -13,7 +13,7 @@ plugins {
 }
 
 group = "de.envite.sample.spring.clean.football"
-version = "0.0.1-SNAPSHOT"
+version = "0.0.1-CUSTOM"
 
 java {
     toolchain {
@@ -147,6 +147,6 @@ tasks {
         buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java", "docker.io/paketobuildpacks/health-checker:latest")
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
 
-        imageName.set("registry.gitlab.com/envite-consulting/sustainable-software-architecture/isaqb-green/${project.name}:${version}")
+        imageName.set("localhost:5000/${project.name}:${version}")
     }
 }

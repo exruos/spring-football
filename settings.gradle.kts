@@ -1,1 +1,1 @@
-rootProject.name = "spring-clean-football-service"
+rootProject.name = "football-spring"
