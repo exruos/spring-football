@@ -31,7 +31,7 @@ class TestcontainersConfiguration {
 
     companion object {
         private val postgresContainer: PostgreSQLContainer<*> by lazy {
-            PostgreSQLContainer(DockerImageName.parse("postgres:17.7"))
+            PostgreSQLContainer(DockerImageName.parse("postgres:18.4"))
                 .apply {
                     withReuse(false)
                     start()
