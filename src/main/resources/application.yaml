@@ -22,7 +22,7 @@ server:
     max-keep-alive-requests: -1
   http2:
     enabled: true # required for gRPC
-  port: 8088
+  port: 8080
 
 logging:
   level:

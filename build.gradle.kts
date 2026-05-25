@@ -14,7 +14,7 @@ plugins {
 }
 
 group = "de.envite.sample.spring.clean.football"
-version = "0.0.1-CUSTOM"
+version = "latest"
 
 java {
     toolchain {
