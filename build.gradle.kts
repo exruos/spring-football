@@ -149,6 +149,6 @@ tasks {
         buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java", "docker.io/paketobuildpacks/health-checker:latest")
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
 
-        imageName.set("localhost:5000/${project.name}:${version}")
+        imageName.set("localhost:5000/football-kotlin:spring")
     }
 }

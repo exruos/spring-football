@@ -17,11 +17,16 @@ spring:
     jdbc:
       repositories:
         enabled: true
+  web:
+    error:
+      whitelabel:
+        enabled: false
+
 server:
   tomcat:
     max-keep-alive-requests: -1
   http2:
-    enabled: true # required for gRPC
+    enabled: false # required for gRPC
   port: 8080
 
 logging:
