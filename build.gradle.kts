@@ -89,8 +89,7 @@ tasks {
 
     withType<BootBuildImage> {
         imagePlatform = "linux/amd64" // GMT requires AMD64 architecture
-        builder.set("dashaun/builder:base") // base instead of tiny otherwise health check does not work
-        buildpacks.addAll("urn:cnb:builder:paketo-buildpacks/java", "docker.io/paketobuildpacks/health-checker:latest")
+        builder.set("paketobuildpacks/builder-jammy-base") // base instead of tiny otherwise health check does not work
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
 
         imageName.set("football-kotlin:spring")
