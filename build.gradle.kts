@@ -8,6 +8,7 @@ plugins {
     id("org.springframework.boot") version "4.1.0"
     id("io.spring.dependency-management") version "1.1.7"
     id("dev.detekt") version "2.0.0-alpha.5"
+    id("org.graalvm.buildtools.native") version "1.1.5"
 }
 
 group = "de.envite.sample.spring.clean.football"
@@ -39,7 +40,9 @@ dependencies {
     // Spring Modulith dependencies
     implementation("org.springframework.modulith:spring-modulith-starter-core")
     runtimeOnly("org.springframework.modulith:spring-modulith-actuator")
-    runtimeOnly("org.springframework.modulith:spring-modulith-observability")
+    if (!project.hasProperty("nativeBuild")) {
+        runtimeOnly("org.springframework.modulith:spring-modulith-observability")
+    }
 
     testImplementation("com.ninja-squad:springmockk:5.0.1")
     testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
@@ -62,6 +65,14 @@ dependencyManagement {
 kotlin {
     compilerOptions {
         freeCompilerArgs.addAll("-Xjsr305=strict")
+    }
+}
+
+graalvmNative {
+    binaries {
+        named("main") {
+            buildArgs.add("--initialize-at-run-time=org.springframework.modulith.observability")
+        }
     }
 }
 
@@ -91,7 +102,8 @@ tasks {
         imagePlatform = "linux/amd64" // GMT requires AMD64 architecture
         builder.set("paketobuildpacks/builder-jammy-base") // base instead of tiny otherwise health check does not work
         environment.put("BP_HEALTH_CHECKER_ENABLED", "true")
+        environment.put("BP_NATIVE_IMAGE", "true")
 
-        imageName.set("football-kotlin:spring")
+        imageName.set("football-kotlin:native")
     }
 }
